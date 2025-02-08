@@ -6,7 +6,7 @@ const nextConfig: NextConfig = {
   // https://www.freecodecamp.org/news/how-to-deploy-next-js-app-to-github-pages/
   output: "export",  // <=== enables static exports
   reactStrictMode: true,
-  basePath: "/2048-in-react",
+  basePath: "/portfolio",
 };
 
 export default nextConfig;
