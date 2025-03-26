@@ -1,0 +1,38 @@
+{
+  "name": "portfolio",
+  "version": "0.2.0",
+  "private": true,
+  "homepage": "https://yonHolmes.github.io/portfolio",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "devTurbo": "next dev --turbopack"
+  },
+  "//": {
+    "devTurbo": "Using Turbot due to this Issue: https://github.com/emotion-js/emotion/issues/3308"
+  },
+  "dependencies": {
+    "@emotion/cache": "^11.14.0",
+    "@emotion/react": "^11.14.0",
+    "@emotion/server": "^11.11.0",
+    "@emotion/styled": "^11.14.0",
+    "@mui/icons-material": "^6.4.8",
+    "@mui/material-nextjs": "^6.4.3",
+    "next": "^15.2.3",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "usehooks-ts": "^3.1.1"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.23.0",
+    "@svgr/webpack": "^8.1.0",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "gh-pages": "^6.3.0",
+    "globals": "^16.0.0",
+    "typescript": "^5",
+    "typescript-eslint": "^8.27.0"
+  }
+}
