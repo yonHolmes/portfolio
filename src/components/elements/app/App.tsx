@@ -4,13 +4,14 @@ import { PropsWithChildren, useEffect, useState } from "react";
 import {
   Box,
   Toolbar,
-  // Link,
+  Typography,
 } from "@mui/material";
-import { useBreakpoints } from "@/context/useBreakpoints";
+import { useBreakpoints } from "@/hooks/useBreakpoints";
 import { AppSidebar } from "@/components/elements/appSidebar/AppSidebar";
 import { ApplicationBar } from "../applicationBar/ApplicationBar";
 import { navRoutes } from "@/consts/navigationConsts";
 import Link from 'next/link';
+import { useIsClient } from "usehooks-ts";
 
 const routes = [
   {
@@ -25,6 +26,8 @@ const routes = [
 
 export function App({ children }: PropsWithChildren) {
   console.log('App');
+
+  const isClient = useIsClient();
   
   const { isMobile } = useBreakpoints();
 
@@ -41,7 +44,8 @@ export function App({ children }: PropsWithChildren) {
       <ApplicationBar
         openSidebar={handleOpenSidebar}
         toolbar={
-          !isMobile
+          // Only try and render, once we're past the first render
+          (!isMobile && isClient)
           ? <Box
               id="ApplicationToolbarContent"
               display="flex"
@@ -52,7 +56,9 @@ export function App({ children }: PropsWithChildren) {
             >
               {routes.map(({ path, label }) =>
                 <Link key={label} href={path}>
-                  {label}
+                  <Typography color="secondary">
+                    {label}
+                  </Typography>
                 </Link>
               )}
             </Box>

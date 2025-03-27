@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import NextImage from "next/image";
 import { Skeleton } from "@mui/material";
+import { useIsClient } from "usehooks-ts";
 
 type PropsImageClient = React.ComponentProps<typeof NextImage> & {
   widthSkeleton?: React.ComponentProps<typeof Skeleton>["width"],
@@ -9,10 +10,8 @@ type PropsImageClient = React.ComponentProps<typeof NextImage> & {
 }
 
 export function ImageClient(props: PropsImageClient) {
-  const [isClient, setIsClient] = useState(false);
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
+  
+  const isClient = useIsClient();
   
   const {
     widthSkeleton,

@@ -1,4 +1,4 @@
-import { ProjectCC } from "@/components/pages/projects/ProjectCC/ProjectCC";
+import { ProjectCC } from "@/components/pages/projects/projectCC/ProjectCC";
 
 
 export default function RouteProjectsCC() {

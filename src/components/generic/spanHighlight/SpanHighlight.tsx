@@ -6,7 +6,7 @@ export function SpanHighlight({ children }: { children: string }) {
   const {
     spacing,
     palette: {
-      secondary: {
+      info: {
         main,
         contrastText,
       }
@@ -20,7 +20,7 @@ export function SpanHighlight({ children }: { children: string }) {
         color: contrastText,
         borderRadius: '50px',
         margin: spacing(0, 0.25),
-        padding: spacing(0, 1),
+        padding: spacing(0.3, 1),
       }}
     >
       {children}

@@ -6,12 +6,33 @@ import {
  Typography,
  Button,
 } from "@mui/material";
-import { useBreakpoints } from "@/context/useBreakpoints";
+import { useBreakpoints } from "@/hooks/useBreakpoints";
 import { ImageClient } from "@/components/generic/image/ImageClient";
 import { Proficiency } from "@/components/generic/proficiency/Proficiency";
 import { proficiencies, ProficiencyInfo } from "@/consts/proficiencyConsts";
 
 const medallionMinWidth = "150px";
+
+const profArray = [
+  proficiencies.react,
+  proficiencies.nodeJS,
+  proficiencies.typeScript,
+  proficiencies.mssqlServer,
+  proficiencies.mySQL,
+  proficiencies.mongoDB,
+  proficiencies.cSharp,
+  proficiencies.aws,
+  proficiencies.electron,
+  proficiencies.nextJS,
+  proficiencies.monorepo,
+  proficiencies.versionControl,
+  proficiencies.express,
+  proficiencies.jira,
+  proficiencies.fabric,
+  proficiencies.java,
+  proficiencies.googleMaps,
+  proficiencies.videoEditing,
+];
 
 export function Home() {
   console.log('Home');
@@ -37,60 +58,14 @@ export function Home() {
         gap={isMobile ? 3 : 4}
         marginTop={2}
       >
-        <ProficiencyFromConst
-          data={proficiencies.react}
-        />
-        <ProficiencyFromConst
-          data={proficiencies.nodeJS}
-        />
-        <ProficiencyFromConst
-          data={proficiencies.typeScript}
-        />
-        <ProficiencyFromConst
-          data={proficiencies.mssqlServer}
-        />
-        <ProficiencyFromConst
-          data={proficiencies.mySQL}
-        />
-        <ProficiencyFromConst
-          data={proficiencies.mongoDB}
-        />
-        <ProficiencyFromConst
-          data={proficiencies.cSharp}
-        />
-        <ProficiencyFromConst
-          data={proficiencies.aws}
-        />
-        <ProficiencyFromConst
-          data={proficiencies.electron}
-        />
-        <ProficiencyFromConst
-          data={proficiencies.nextJS}
-        />
-        <ProficiencyFromConst
-          data={proficiencies.monorepo}
-        />
-        <ProficiencyFromConst
-          data={proficiencies.versionControl}
-        />
-        <ProficiencyFromConst
-          data={proficiencies.express}
-        />
-        <ProficiencyFromConst
-          data={proficiencies.jira}
-        />
-        <ProficiencyFromConst
-          data={proficiencies.fabric}
-        />
-        <ProficiencyFromConst
-          data={proficiencies.java}
-        />
-        <ProficiencyFromConst
-          data={proficiencies.googleMaps}
-        />
-        <ProficiencyFromConst
-          data={proficiencies.videoEditing}
-        />
+        {profArray.map(prof => {
+          return (
+            <ProficiencyFromConst
+              key={prof.skill}
+              data={prof}
+            />
+          )
+        })}
       </Box>
     </>
   )

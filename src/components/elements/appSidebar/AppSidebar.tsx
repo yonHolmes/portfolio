@@ -1,8 +1,11 @@
 import { navRoutes } from "@/consts/navigationConsts";
-import { useBreakpoints } from "@/context/useBreakpoints";
-import { Box, List, ListItem, SwipeableDrawer } from "@mui/material";
+import { useBreakpoints } from "@/hooks/useBreakpoints";
+import { Box, List, ListItem, ListItemButton, ListItemIcon, ListItemText, SwipeableDrawer } from "@mui/material";
 import { useRouter } from "next/navigation";
-
+import { ReactNode } from "react";
+import HomeIcon from '@mui/icons-material/Home';
+import EngineeringIcon from '@mui/icons-material/Engineering';
+import ConnectWithoutContactIcon from '@mui/icons-material/ConnectWithoutContact';
 
 type PropsAppSidebar = {
   open: boolean,
@@ -10,14 +13,27 @@ type PropsAppSidebar = {
   onClose: () => void,
 }
 
-const routes = [
+type Route = {
+  icon?: ReactNode,
+  label: string,
+  path: string,
+}
+
+const routes: Route[] = [
   {
-    path: navRoutes.projects().path,
-    label: 'Projects',
+    label: 'Home',
+    path: navRoutes.home().path,
+    icon: <HomeIcon/>,
   },
   {
-    path: navRoutes.softSkills().path,
+    label: 'Projects',
+    path: navRoutes.projects().path,
+    icon: <EngineeringIcon/>,
+  },
+  {
     label: 'Soft Skills',
+    path: navRoutes.softSkills().path,
+    icon: <ConnectWithoutContactIcon/>
   },
 ];
 
@@ -33,7 +49,6 @@ export function AppSidebar(props: PropsAppSidebar) {
   } = useBreakpoints();
 
   const router = useRouter();
-
   function handleNav(path: string) {
     router.push(path);
     onClose();
@@ -50,7 +65,7 @@ export function AppSidebar(props: PropsAppSidebar) {
         maxWidth={isMobile ? 'initial' : '300px'}
       >
         <List>
-          {routes.map(({ path, label }) =>
+          {routes.map(({ path, label, icon }) =>
             /*
             We're using handleNav here so that
             we can close the Drawer after the Click
@@ -61,9 +76,16 @@ export function AppSidebar(props: PropsAppSidebar) {
               style={{
                 cursor: 'pointer',
               }}
-              tabIndex={0}
+              disablePadding
             >
-              {label}
+              <ListItemButton>
+                <ListItemIcon>
+                  {icon}
+                </ListItemIcon>
+                <ListItemText>
+                  {label}
+                </ListItemText>
+              </ListItemButton>
             </ListItem>
           )}
         </List>

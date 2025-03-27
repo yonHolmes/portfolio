@@ -14,10 +14,6 @@ export function ApplicationBar({ openSidebar, toolbar }: PropsApplicationBar) {
     spacing,
   } = useTheme();
 
-  const pathname = usePathname();
-
-  // console.log(`Theme is ${themeKey} - ${subThemeKey}`);
-
   return (
     <>
       <AppBar id="AppBar" component="nav">
@@ -36,10 +32,10 @@ export function ApplicationBar({ openSidebar, toolbar }: PropsApplicationBar) {
             alignItems="center"
           >
             <IconButton onClick={openSidebar}>
-              <Menu/>
+              <Menu color="secondary"/>
             </IconButton>
             <Link href="/">
-              <Typography variant="h6">
+              <Typography variant="h6" color="primary">
                 Yon Holmes
               </Typography>
             </Link>
