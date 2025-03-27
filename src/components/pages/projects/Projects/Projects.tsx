@@ -1,6 +1,5 @@
 "use client"
 
-import { navRoutes } from "@/consts/navigationConsts";
 import {
   Accordion,
   AccordionDetails,
@@ -13,8 +12,6 @@ import {
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import BusinessIcon from '@mui/icons-material/Business';
 import HomeIcon from '@mui/icons-material/Home';
-
-import { useRouter } from "next/navigation";
 import { projectsHome, projectsWorkArr } from "@/consts/projectConsts";
 import { ProjectCard } from "./ProjectCard";
 import { useBreakpoints } from "@/hooks/useBreakpoints";
