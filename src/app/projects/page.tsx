@@ -1,4 +1,4 @@
-import { Projects } from "@/components/pages/projects/projects/Projects";
+import { Projects } from "@/components/pages/projects/projectsPage/Projects";
 
 
 export default function RoutingProjects() {
