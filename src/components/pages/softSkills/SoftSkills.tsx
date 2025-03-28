@@ -81,7 +81,7 @@ export function SoftSkills() {
     <div>
       <section>
         <Stack gap={1}>
-          <Typography variant="h6">
+          <Typography variant="h5">
             Soft Skills
           </Typography>
 

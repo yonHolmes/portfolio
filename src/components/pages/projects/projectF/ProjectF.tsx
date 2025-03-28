@@ -1,18 +1,30 @@
+"use client"
+
 import { SpanHighlight as Span, SpanHighlight } from "@/components/generic/spanHighlight/SpanHighlight";
-import { Stack, Typography } from "@mui/material";
+import { Divider, Stack, Typography, useTheme } from "@mui/material";
 import { MockupOfProjectF } from "./MockupOfProjectF";
+import { ListText } from "@/components/generic/listText/ListText";
+import { projectsWorkRecord } from "@/consts/projectConsts";
 // import { ListChip } from "@/components/generic/listChip/ListChip";
 
 
 export function ProjectF() {
   console.log('ProjectF');
+  
+  const {
+    palette: {
+      primary: {
+        main,
+      }
+    }
+  } = useTheme();
 
   return (
     <Stack
       gap={2}
     >
-      <Typography variant="h6">
-        Project F
+      <Typography variant="h5">
+        {projectsWorkRecord.projectF.label}
       </Typography>
 
       <Typography>
@@ -43,7 +55,33 @@ export function ProjectF() {
         clearly I had developed a habit of using a new project to learn something new, and this was no exception.
       </Typography>
 
+      <Typography>
+        The app was also praised for its <Span>accessability</Span>; every element of text or control was able
+        to be navigated to with the keyboard; which mean't that it also supported screen-readers out the box.
+        We made heavy use of custom <Span>aria</Span> labels to make sure that information was well communicated
+        by the React components such as State, desired action, etc.
+      </Typography>
+
       <MockupOfProjectF/>
+
+      <Divider sx={{ opacity: 1 }} color={main} />
+      
+      <Typography variant="h6">
+        What I learned
+      </Typography>
+
+      <ListText
+        list={[
+          'The latest (and still) approach to state; React context and Hooks.',
+
+          'During the project I pushed myself harder than I had before to get the "brain" to work'
+          + ' flawlessly, it taught me how much I could surpass my limits.',
+
+          'When I designed the data-structure for the questions, it was highly numerical and versionable, however'
+          + ' this led to some qwerks or awkwardnesses; if I had gone with a simpler unique key/name system it would have'
+          + ' been just as effective, and far more readable.'
+        ]}
+      />
     </Stack>
   )
 }

@@ -1,16 +1,29 @@
-import { ListChip } from "@/components/generic/listChip/ListChip";
+"use client"
+
+import { ListChip } from "@/components/generic/listChipElm/ListChipElm";
+import { ListText } from "@/components/generic/listText/ListText";
 import { SpanHighlight as Span } from "@/components/generic/spanHighlight/SpanHighlight";
-import { projectsWorkArr, projectsWorkRecord } from "@/consts/projectConsts";
+import { projectsWorkRecord } from "@/consts/projectConsts";
 import { ChangeCircle, Checklist, Speed } from "@mui/icons-material";
-import { Box, Chip, Stack, Typography } from "@mui/material";
+import { Box, Divider, Stack, Typography, useTheme } from "@mui/material";
+
 
 export function ProjectCC() {
   console.log('ProjectCC');
+
+  const {
+    palette: {
+      primary: {
+        main,
+      },
+    }
+  } = useTheme();
+
   return (
     <Stack
       gap={2}
     >
-      <Typography variant="h6">
+      <Typography variant="h5">
         {projectsWorkRecord.projectCC.label}
       </Typography>
 
@@ -50,6 +63,25 @@ export function ProjectCC() {
         company; this was invaluable so that I could work with the team on how the existing behavior not only worked
         on the frontend, but what it did to the backend so if needed we could bring in improvements or new features.
       </Typography>
+
+      <Divider sx={{ opacity: 1 }} color={main} />
+
+      <Typography variant="h6">
+        What I learned
+      </Typography>
+
+      <ListText
+        list={[
+          'React to the ability to produce a variety of page and state functionality.',
+
+          'Node.js in the context of running stored procedures'
+          + ' to both make decisions on what data to return, and returning said data.',
+
+          'Applying my Subject Matter Expert knowledge of the existing application to the team'
+          + ' for the project.'
+        ]}
+      />
+
     </Stack>
   )
 }

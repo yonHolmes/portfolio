@@ -11,6 +11,7 @@ import PsychologyAltIcon from '@mui/icons-material/PsychologyAlt';
 import TimerIcon from '@mui/icons-material/Timer';
 import LocalOfferIcon from '@mui/icons-material/LocalOffer';
 import Groups3Icon from '@mui/icons-material/Groups3';
+import ContactEmergencyIcon from '@mui/icons-material/ContactEmergency';
 import { projectsWorkRecord } from "./projectConsts";
 
 type QuickLink = {
@@ -157,6 +158,12 @@ export const softSkills: SoftSkill[] = [
       'The only negotiation situations I would find myself in, is negotiating how much time we have for a project'
       + ' some of the best ways to fail a project are to assume you won\'t hit unexpected issues, or to skimp out on'
       + 'QA/Testing/UAT, so where possible I will always strive for a little more time than needed, than too little.'
+    ],
+    links: [
+      {
+        label: projectsWorkRecord.projectLA.label,
+        href: navRoutes.projectLA().path,
+      },
     ]
   },
   {
@@ -167,5 +174,15 @@ export const softSkills: SoftSkill[] = [
       + ' the stability of the applications, etc. Where possible and where my skills meet the needs, I try to oversee what I can'
       + ' and voice concerns if I feel any arise (such as the one mentioned in \'Time management\')',
     ]
-  }
+  },
+  {
+    icon: <ContactEmergencyIcon/>,
+    heading: 'Client Communication',
+    content: [
+      'I have had numerous work calls with Clients (those responsible for the applications we supplied to their business)'
+      + ' with a variety of appetitie for technical jargon. As such I have had a good experience of how to approach each person'
+      + ' individually, being more technical and straightforward with the limitations or reason for an issue with some, and more'
+      + ' generic with others as needed.',
+    ]
+  },
 ];

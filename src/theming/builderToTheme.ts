@@ -53,7 +53,7 @@ function builderToSubTheme(builderTheme: ThemeBuilder, key: ThemeSchemasKeys): T
       text: {
         primary: scheme.onBackground,
         secondary: scheme.onSurface,
-        disabled: scheme.onTertiary
+        disabled: scheme.onTertiary,
       },
       background: {
         default: scheme.background,

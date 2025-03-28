@@ -1,11 +1,12 @@
 import { navRoutes } from "@/consts/navigationConsts";
 import { useBreakpoints } from "@/hooks/useBreakpoints";
-import { Box, List, ListItem, ListItemButton, ListItemIcon, ListItemText, SwipeableDrawer } from "@mui/material";
+import { Box, IconButton, List, ListItem, ListItemButton, ListItemIcon, ListItemText, SwipeableDrawer, useTheme } from "@mui/material";
 import { useRouter } from "next/navigation";
 import { ReactNode } from "react";
 import HomeIcon from '@mui/icons-material/Home';
 import EngineeringIcon from '@mui/icons-material/Engineering';
 import ConnectWithoutContactIcon from '@mui/icons-material/ConnectWithoutContact';
+import CloseIcon from '@mui/icons-material/Close';
 
 type PropsAppSidebar = {
   open: boolean,
@@ -43,6 +44,14 @@ export function AppSidebar(props: PropsAppSidebar) {
     onOpen,
     onClose,
   } = props;
+  
+  const {
+    palette: {
+      text: {
+        secondary: textSecondary,
+      }
+    }
+  } = useTheme();
 
   const {
     isMobile,
@@ -64,31 +73,45 @@ export function AppSidebar(props: PropsAppSidebar) {
         width={isMobile ? '100vw' : '30vw'}
         maxWidth={isMobile ? 'initial' : '300px'}
       >
-        <List>
-          {routes.map(({ path, label, icon }) =>
-            /*
-            We're using handleNav here so that
-            we can close the Drawer after the Click
-            */
-            <ListItem
-              key={label}
-              onClick={() => handleNav(path)}
-              style={{
-                cursor: 'pointer',
-              }}
-              disablePadding
-            >
-              <ListItemButton>
-                <ListItemIcon>
-                  {icon}
-                </ListItemIcon>
-                <ListItemText>
-                  {label}
-                </ListItemText>
-              </ListItemButton>
-            </ListItem>
-          )}
-        </List>
+        <Box>
+          <Box
+            display="flex"
+            flexDirection="row"
+            justifyContent="flex-end"
+            padding={({ spacing }) => spacing(1, 3, 1, 0)}
+            borderBottom="1px solid"
+          >
+            <IconButton onClick={onClose}>
+              <CloseIcon/>
+            </IconButton>
+          </Box>
+          <List>
+            {routes.map(({ path, label, icon }) =>
+              /*
+              We're using handleNav here so that
+              we can close the Drawer after the Click
+              */
+              <ListItem
+                key={label}
+                onClick={() => handleNav(path)}
+                style={{
+                  cursor: 'pointer',
+                  color: textSecondary,
+                }}
+                disablePadding
+              >
+                <ListItemButton>
+                  <ListItemIcon>
+                    {icon}
+                  </ListItemIcon>
+                  <ListItemText>
+                    {label}
+                  </ListItemText>
+                </ListItemButton>
+              </ListItem>
+            )}
+          </List>
+        </Box>
       </Box>
     </SwipeableDrawer>
   )

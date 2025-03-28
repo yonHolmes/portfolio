@@ -11,6 +11,11 @@ type navKeys = 'home'
   | 'projectF'
   | 'projectT'
   | 'projectLA'
+  | 'projectA'
+
+  | 'projectDevelopmentAssistantApp'
+
+  | 'projectDBC'
 
   | 'projectDiscordBot'
   | 'projectMaintainMultiLayeredWabAppAndBot'
@@ -49,14 +54,28 @@ export const navRoutes: NavRoutes = {
     path: '/projects/projectLA',
     fullPath: `/${BASE_PATH}/projects/projectLA`,
   }),
+  projectA: () => ({
+    path: '/projects/projectA',
+    fullPath: `/${BASE_PATH}/projects/projectA`,
+  }),
+
+  projectDevelopmentAssistantApp: () => ({
+    path: '/projects/projectDevelopmentAssistantApp',
+    fullPath: `/${BASE_PATH}/projects/projectDevelopmentAssistantApp`,
+  }),
+
+  projectDBC: () => ({
+    path: '/projects/projectDBC',
+    fullPath: `/${BASE_PATH}/projects/projectDBC`,
+  }),
 
   projectDiscordBot: () => ({
-    path: '/projects/discordBot',
-    fullPath: `/${BASE_PATH}/projects/discordBot`,
+    path: '/projects/projectDiscordBot',
+    fullPath: `/${BASE_PATH}/projects/projectDiscordBot`,
   }),
   projectMaintainMultiLayeredWabAppAndBot: () => ({
-    path: '/projects/multiLayeredApp',
-    fullPath: `/${BASE_PATH}/projects/multiLayeredApp`,
+    path: '/projects/projectMaintainMultiLayeredWabAppAndBot',
+    fullPath: `/${BASE_PATH}/projects/projectMaintainMultiLayeredWabAppAndBot`,
   }),
 
   softSkills: () => ({

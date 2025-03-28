@@ -6,6 +6,7 @@ import {
   CardHeader,
   Chip,
   Typography,
+  useTheme,
 } from "@mui/material";
 
 type PropsProjectCard = {
@@ -24,6 +25,14 @@ export function ProjectCard(props: PropsProjectCard) {
   }
 
   const {
+    palette: {
+      text: {
+        secondary: textSecondary,
+      }
+    }
+  } = useTheme();
+
+  const {
     label,
     description,
     href,
@@ -39,6 +48,7 @@ export function ProjectCard(props: PropsProjectCard) {
       sx={{
         maxWidth: '500px',
         cursor: 'pointer',
+        color: textSecondary,
       }}
     >
       <Box
@@ -49,7 +59,7 @@ export function ProjectCard(props: PropsProjectCard) {
         height="100%"
       >
         <Box>
-          <CardHeader title={label} sx={{ padding: 0 }}/>
+          <CardHeader title={label} color="secondary" sx={{ padding: 0 }}/>
           {description &&
           <Typography marginTop={1}>
             {description}
