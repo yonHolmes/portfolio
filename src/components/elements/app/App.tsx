@@ -12,6 +12,7 @@ import { ApplicationBar } from "../applicationBar/ApplicationBar";
 import { navRoutes } from "@/consts/navigationConsts";
 import Link from 'next/link';
 import { useIsClient } from "usehooks-ts";
+import { AppSearchBox } from "../appSearchBox/AppSearchBox";
 
 const routes = [
   {
@@ -49,18 +50,22 @@ export function App({ children }: PropsWithChildren) {
           ? <Box
               id="ApplicationToolbarContent"
               display="flex"
+              justifyContent="flex-start"
               flexDirection="row"
+              alignItems="center"
               height="100%"
+              width="100%"
               gap={3}
               marginTop={0.6} // Help Align content to 'YH' text
             >
               {routes.map(({ path, label }) =>
-                <Link key={label} href={path}>
+                <Link key={label} href={path} style={{ flexShrink: 0 }}>
                   <Typography color="secondary">
                     {label}
                   </Typography>
                 </Link>
               )}
+              <AppSearchBox/>
             </Box>
           : null
         }

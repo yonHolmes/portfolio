@@ -11,6 +11,7 @@ const tagGroups = {
   tSQL: [
     'T-SQL',
     'SQL',
+    'Database',
   ],
   electron: [
     'Electron',
@@ -59,6 +60,7 @@ const tagGroups = {
     'MongoDB',
     'Mongoose',
     'Mongo',
+    'Database',
   ],
   nodeJS: [
     'Node.js',
@@ -90,8 +92,13 @@ function getHomeProjectDataAndCombine(key: ProjectHomeKeys, other: { tags: strin
   }
 }
 
+type SearchData = {
+  tags: string[];
+  label: string;
+  href: string;
+};
 
-export const searchableData = [
+export const searchableData: SearchData[] = [
   getWorkProjectDataAndCombine('projectT', {
     tags: combineArrays(
       tagGroups.tSQL,

@@ -23,6 +23,7 @@ export function ApplicationBar({ openSidebar, toolbar }: PropsApplicationBar) {
             flexDirection: 'row',
             justifyContent: 'flex-start',
             paddingLeft: spacing(1),
+            flexShrink: 0,
             gap: 3,
           }}
         >
@@ -30,6 +31,7 @@ export function ApplicationBar({ openSidebar, toolbar }: PropsApplicationBar) {
             display="flex"
             flexDirection="row"
             alignItems="center"
+            flexShrink="0"
           >
             <IconButton onClick={openSidebar}>
               <Menu color="secondary"/>

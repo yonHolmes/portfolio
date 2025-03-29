@@ -18,3 +18,6 @@ export function getObjectEntries<
 ) {
   return Object.entries<T[keyof T]>(object);
 }
+
+export type ArrayElement<ArrayType extends readonly unknown[]> = 
+  ArrayType extends readonly (infer ElementType)[] ? ElementType : never;
