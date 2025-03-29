@@ -127,6 +127,9 @@ export const projectsHomeRecord: Record<ProjectHomeKeys, Project> = {
       'Discord.js',
       'Express',
       'Konva/Canvas',
+      'Leaflet',
+      'OAuth',
+      'pm2',
     ]
   }
 };
