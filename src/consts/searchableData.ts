@@ -76,44 +76,47 @@ function combineArrays(...args: Array<string[]>) {
   }, []);
 }
 
-function getWorkProjectDataAndCombine(key: ProjectWorkKeys, other: { tags: string[] }) {
+function getWorkProjectDataAndCombine(key: ProjectWorkKeys, other: { searchTerms: string[] }) {
   return {
     label: projectsWorkRecord[key].label,
     href: projectsWorkRecord[key].href,
+    keyTags: projectsWorkRecord[key].tags,
     ...other,
   }
 }
 
-function getHomeProjectDataAndCombine(key: ProjectHomeKeys, other: { tags: string[] }) {
+function getHomeProjectDataAndCombine(key: ProjectHomeKeys, other: { searchTerms: string[] }) {
   return {
     label: projectsHomeRecord[key].label,
     href: projectsHomeRecord[key].href,
+    keyTags: projectsHomeRecord[key].tags,
     ...other,
   }
 }
 
 type SearchData = {
-  tags: string[];
+  searchTerms: string[];
   label: string;
   href: string;
+  keyTags: string[] | undefined,
 };
 
 export const searchableData: SearchData[] = [
   getWorkProjectDataAndCombine('projectT', {
-    tags: combineArrays(
+    searchTerms: combineArrays(
       tagGroups.tSQL,
     ),
   }),
 
   getWorkProjectDataAndCombine('projectCC', {
-    tags: combineArrays(
+    searchTerms: combineArrays(
       tagGroups.react,
       tagGroups.tSQL,
     ),
   }),
   
   getWorkProjectDataAndCombine('projectLA', {
-    tags: combineArrays(
+    searchTerms: combineArrays(
       tagGroups.react,
       tagGroups.tSQL,
       tagGroups.negotiate,
@@ -121,7 +124,7 @@ export const searchableData: SearchData[] = [
   }),
 
   getWorkProjectDataAndCombine('projectDevelopmentAssistantApp', {
-    tags: combineArrays(
+    searchTerms: combineArrays(
       tagGroups.electron,
       tagGroups.tSQL,
       tagGroups.negotiate,
@@ -129,7 +132,7 @@ export const searchableData: SearchData[] = [
   }),
 
   getWorkProjectDataAndCombine('projectF', {
-    tags: combineArrays(
+    searchTerms: combineArrays(
       tagGroups.react,
       tagGroups.tSQL,
       tagGroups.accessable,
@@ -137,7 +140,7 @@ export const searchableData: SearchData[] = [
   }),
 
   getWorkProjectDataAndCombine('projectA', {
-    tags: combineArrays(
+    searchTerms: combineArrays(
       tagGroups.react,
       tagGroups.translation,
       [
@@ -149,14 +152,14 @@ export const searchableData: SearchData[] = [
   }),
 
   getWorkProjectDataAndCombine('projectDBC', {
-    tags: combineArrays(
+    searchTerms: combineArrays(
       tagGroups.tSQL,
       tagGroups.cSharp,
     )
   }),
 
   getHomeProjectDataAndCombine('projectDiscordBot', {
-    tags: combineArrays(
+    searchTerms: combineArrays(
       tagGroups.mongoDB,
       tagGroups.nodeJS,
       [
@@ -167,7 +170,7 @@ export const searchableData: SearchData[] = [
   }),
 
   getHomeProjectDataAndCombine('projectMaintainMultiLayeredWabAppAndBot', {
-    tags: combineArrays(
+    searchTerms: combineArrays(
       tagGroups.nodeJS,
       tagGroups.mongoDB,
       tagGroups.react,

@@ -4,15 +4,17 @@ import {
   Autocomplete,
   Box,
   TextField,
+  Typography,
 } from "@mui/material";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
-const searchableOptions = searchableData.map(({ tags, label, href }) => {
+const searchableOptions = searchableData.map(({ searchTerms, keyTags, label, href }) => {
   return ({
     href,
     label,
-    tags,
+    searchTerms,
+    keyTags,
   });
 });
 
@@ -20,8 +22,8 @@ type SearchableOptions = typeof searchableData;
 
 function filterOptions(options: SearchableOptions, { inputValue }: { inputValue: string }) {
   return options
-    .filter(({ label, tags }) => {
-      if (tags.some(tag => tag.toLowerCase().includes(inputValue.toLowerCase()))) {
+    .filter(({ label, searchTerms }) => {
+      if (searchTerms?.some(term => term.toLowerCase().includes(inputValue.toLowerCase()))) {
         return true;
       }
       if (label.toLowerCase().includes(inputValue.toLowerCase())) {
@@ -67,6 +69,24 @@ export function AppSearchBox() {
           return;
         }
         handleNav(value.href);
+      }}
+
+      
+      renderOption={(props, option, { selected }) => {
+        const { key, ...optionProps } = props;
+        return (
+          <li key={key} {...optionProps}>
+            <Box>
+              <Typography>
+                {option.label}
+              </Typography>
+              {option.keyTags &&
+              <Typography variant="caption" style={{ fontStyle: 'italic' }}>
+                {option.keyTags?.join(' | ')}
+              </Typography>}
+            </Box>
+          </li>
+        )
       }}
     />
   )
