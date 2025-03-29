@@ -122,6 +122,8 @@ export const projectsHomeRecord: Record<ProjectHomeKeys, Project> = {
     href: navRoutes.projectMaintainMultiLayeredWabAppAndBot().path,
     description: 'I maintain a Web App, Discord Bot, API, and Backend for a Friend.',
     tags: [
+      'React',
+      'TypeScript',
       'Node.js',
       'MongoDB',
       'Discord.js',

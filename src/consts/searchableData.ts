@@ -152,13 +152,30 @@ export const searchableData = [
     tags: combineArrays(
       tagGroups.mongoDB,
       tagGroups.nodeJS,
+      [
+        'discord',
+        'discord.js',
+      ]
     ),
   }),
 
   getHomeProjectDataAndCombine('projectMaintainMultiLayeredWabAppAndBot', {
     tags: combineArrays(
-      tagGroups.mongoDB,
       tagGroups.nodeJS,
+      tagGroups.mongoDB,
+      tagGroups.react,
+      [
+        'discord',
+        'discord.js',
+        'Express',
+        'Konva',
+        'Canvas',
+        'Leaflet',
+        'OAuth',
+        'Auth',
+        'pm2',
+        'server',
+      ]
     ),
   })
 ]
