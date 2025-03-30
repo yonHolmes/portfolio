@@ -1,12 +1,13 @@
 import { navRoutes } from "@/consts/navigationConsts";
 import { useBreakpoints } from "@/hooks/useBreakpoints";
-import { Box, IconButton, List, ListItem, ListItemButton, ListItemIcon, ListItemText, SwipeableDrawer, useTheme } from "@mui/material";
+import { Box, IconButton, List, ListItem, ListItemButton, ListItemIcon, ListItemText, SwipeableDrawer, Typography, useTheme } from "@mui/material";
 import { useRouter } from "next/navigation";
 import { ReactNode } from "react";
 import HomeIcon from '@mui/icons-material/Home';
 import EngineeringIcon from '@mui/icons-material/Engineering';
 import ConnectWithoutContactIcon from '@mui/icons-material/ConnectWithoutContact';
 import CloseIcon from '@mui/icons-material/Close';
+import { AppSearchBox } from "../appSearchBox/AppSearchBox";
 
 type PropsAppSidebar = {
   open: boolean,
@@ -77,10 +78,20 @@ export function AppSidebar(props: PropsAppSidebar) {
           <Box
             display="flex"
             flexDirection="row"
-            justifyContent="flex-end"
-            padding={({ spacing }) => spacing(1, 3, 1, 0)}
+            justifyContent={isMobile ? 'space-between' : 'flex-end'}
+            alignItems="center"
+            padding={({ spacing }) => spacing(1, 3, 1, 1)}
             borderBottom="1px solid"
           >
+            {isMobile &&
+            <AppSearchBox
+              iconPosition="start"
+              sx={isMobile ? {
+                maxWidth: '70vw',
+              } : null}
+            />
+            }
+
             <IconButton onClick={onClose}>
               <CloseIcon/>
             </IconButton>
@@ -111,6 +122,7 @@ export function AppSidebar(props: PropsAppSidebar) {
               </ListItem>
             )}
           </List>
+
         </Box>
       </Box>
     </SwipeableDrawer>

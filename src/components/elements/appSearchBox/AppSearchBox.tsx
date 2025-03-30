@@ -6,8 +6,9 @@ import {
   TextField,
   Typography,
 } from "@mui/material";
+import SearchIcon from '@mui/icons-material/Search';
 import { useRouter } from "next/navigation";
-import { useState } from "react";
+import { ComponentProps, useState } from "react";
 
 const searchableOptions = searchableData.map(({ searchTerms, keyTags, label, href }) => {
   return ({
@@ -34,7 +35,12 @@ function filterOptions(options: SearchableOptions, { inputValue }: { inputValue:
     })
 }
 
-export function AppSearchBox() {
+type PropsAppSearchBox = {
+  sx?: ComponentProps<typeof Autocomplete>["sx"],
+  iconPosition?: 'start' | 'end',
+}
+
+export function AppSearchBox({ sx, iconPosition }: PropsAppSearchBox) {
 
   const [acKey, setACKey] = useState(0);
 
@@ -55,12 +61,25 @@ export function AppSearchBox() {
       sx={{
         maxWidth: '400px', // This fits the longest search item
         flexShrink: 0, // Don't allow to be reduced in width
+        ...(sx ?? {}),
       }}
       renderInput={(params) => (
         <TextField
           {...params}
           placeholder="Search (e.g. 'Node.js')"
           variant="standard"
+          slotProps={{
+            input: {
+              ...params.InputProps,
+              startAdornment: iconPosition === 'start'
+                ? <SearchIcon/>
+                : null,
+              endAdornment: iconPosition !== 'start'
+                ? <SearchIcon/>
+                : null,
+              disableUnderline: true, // <== added this
+            },
+          }}
         />
       )}
       filterOptions={(options, state) => filterOptions(options, state)}
