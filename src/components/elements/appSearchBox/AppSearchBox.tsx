@@ -1,5 +1,5 @@
 import { searchableData } from "@/consts/searchableData";
-import { ArrayElement } from "@/helpers/typescriptHelper";
+import { stringSimilarity } from 'string-similarity-js';
 import {
   Autocomplete,
   Box,
@@ -24,12 +24,29 @@ type SearchableOptions = typeof searchableData;
 function filterOptions(options: SearchableOptions, { inputValue }: { inputValue: string }) {
   return options
     .filter(({ label, searchTerms }) => {
-      if (searchTerms?.some(term => term.toLowerCase().includes(inputValue.toLowerCase()))) {
-        return true;
-      }
+
       if (label.toLowerCase().includes(inputValue.toLowerCase())) {
+        // Label/Title contains input
         return true;
       }
+      if (searchTerms?.some(term => term.toLowerCase().includes(inputValue.toLowerCase()))) {
+        // Any of the Search Terms, contain the input
+        return true;
+      }
+
+      const score = stringSimilarity(inputValue.toLowerCase(), label.toLowerCase());
+      if (score > 0.6) {
+        // Any of the labels, are close to what was typed
+        return true;
+      }
+
+      if (
+        searchTerms?.some(term => 0.7 < stringSimilarity(term.toLowerCase(), inputValue.toLowerCase()))
+      ) {
+        // Any of the Search terms are close to what was typed
+        return true;
+      }
+
       // I like being explicit
       return false;
     })
@@ -37,10 +54,12 @@ function filterOptions(options: SearchableOptions, { inputValue }: { inputValue:
 
 type PropsAppSearchBox = {
   sx?: ComponentProps<typeof Autocomplete>["sx"],
+  onNavigate?: () => void,
   iconPosition?: 'start' | 'end',
+  disableUnderline?: boolean,
 }
 
-export function AppSearchBox({ sx, iconPosition }: PropsAppSearchBox) {
+export function AppSearchBox({ sx, onNavigate, iconPosition, disableUnderline }: PropsAppSearchBox) {
 
   const [acKey, setACKey] = useState(0);
 
@@ -58,9 +77,16 @@ export function AppSearchBox({ sx, iconPosition }: PropsAppSearchBox) {
       }
       options={searchableOptions}
       fullWidth
+      slotProps={{
+        listbox: {
+          style: {
+            overflowY: 'scroll',
+          }
+        }
+      }}
       sx={{
         maxWidth: '400px', // This fits the longest search item
-        flexShrink: 0, // Don't allow to be reduced in width
+        flexShrink: 1, // Don't allow to be reduced in width
         ...(sx ?? {}),
       }}
       renderInput={(params) => (
@@ -77,7 +103,7 @@ export function AppSearchBox({ sx, iconPosition }: PropsAppSearchBox) {
               endAdornment: iconPosition !== 'start'
                 ? <SearchIcon/>
                 : null,
-              disableUnderline: true, // <== added this
+              disableUnderline,
             },
           }}
         />
@@ -88,20 +114,22 @@ export function AppSearchBox({ sx, iconPosition }: PropsAppSearchBox) {
           return;
         }
         handleNav(value.href);
+        onNavigate?.();
       }}
-
-      
       renderOption={(props, option, { selected }) => {
         const { key, ...optionProps } = props;
         return (
           <li key={key} {...optionProps}>
             <Box>
-              <Typography>
+              <Typography color="primary">
                 {option.label}
               </Typography>
               {option.keyTags &&
-              <Typography variant="caption" style={{ fontStyle: 'italic' }}>
-                {option.keyTags?.join(' | ')}
+              <Typography
+                variant="caption"
+                fontStyle="italic"
+              >
+                {option.keyTags?.join(' • ')}
               </Typography>}
             </Box>
           </li>

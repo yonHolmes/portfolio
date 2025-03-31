@@ -27,6 +27,6 @@
     "**/*.ts",
     "**/*.tsx",
     ".next/types/**/*.ts"
-, "src/components/generic/spanHighlight"  ],
+, "src/components/generic/spanHighlight", "src/components/elements/contact"  ],
   "exclude": ["node_modules"]
 }

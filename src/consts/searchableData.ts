@@ -50,8 +50,10 @@ const tagGroups = {
   ],
   cSharp: [
     'C#',
+    'Csharp',
     'dotNET',
     '.NET',
+    'ASP.NET',
     'SOLID',
     'inheritence',
     'interface',
@@ -61,6 +63,7 @@ const tagGroups = {
     'Mongoose',
     'Mongo',
     'Database',
+    'NoSQL',
   ],
   nodeJS: [
     'Node.js',

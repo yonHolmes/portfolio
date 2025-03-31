@@ -1,6 +1,7 @@
 import { ImageAuto, ImageClient } from "@/components/generic/image/ImageClient";
 import { Proficiency } from "@/components/generic/proficiency/Proficiency";
 import { IMAGE_BASE_PATH } from "@/consts/appConsts";
+import { navRoutes } from "./navigationConsts";
 
 export type ProficiencyInfo = {
   skill: React.ComponentProps<typeof Proficiency>["skill"]
@@ -13,6 +14,7 @@ export type ProficiencyInfo = {
     src: React.ComponentProps<typeof ImageAuto>["src"],
     alt: React.ComponentProps<typeof ImageAuto>["alt"],
   },
+  onClick?: (onNav: (path: string) => void) => void,
 }
 
 export const proficiencies: Record<string, ProficiencyInfo> = {
@@ -163,11 +165,12 @@ export const proficiencies: Record<string, ProficiencyInfo> = {
   googleMaps: {
     skill: 'Google Maps',
     tooltip: 'Google Maps',
-    level: 2,
+    level: 3,
     image: {
       src: `${IMAGE_BASE_PATH}/google-maps-logo-2020.svg`,
       alt: 'Google Maps Logo 2020',
     },
+    onClick: (handleNav) => handleNav?.(navRoutes.visited().path),
     // width: '130px',
   },
   videoEditing: {

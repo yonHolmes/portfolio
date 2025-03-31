@@ -68,7 +68,7 @@ export function Projects() {
             flexDirection="row"
             flexWrap="wrap"
             marginTop={1}
-            gap={1}
+            gap={2}
           >
             {projectsWorkArr.map(({ label, href, description, tags }) => {
               return (
@@ -118,6 +118,7 @@ export function Projects() {
                   href={href}
                   description={description}
                   tags={tags}
+                  showNavButton={isMobile}
                 />
               )
             })}

@@ -1,13 +1,25 @@
 import { navRoutes } from "@/consts/navigationConsts";
 import { useBreakpoints } from "@/hooks/useBreakpoints";
-import { Box, IconButton, List, ListItem, ListItemButton, ListItemIcon, ListItemText, SwipeableDrawer, Typography, useTheme } from "@mui/material";
+import {
+  Box,
+  IconButton,
+  List,
+  ListItem,
+  ListItemButton,
+  ListItemIcon,
+  ListItemText,
+  SwipeableDrawer,
+  useTheme,
+} from "@mui/material";
 import { useRouter } from "next/navigation";
 import { ReactNode } from "react";
 import HomeIcon from '@mui/icons-material/Home';
 import EngineeringIcon from '@mui/icons-material/Engineering';
 import ConnectWithoutContactIcon from '@mui/icons-material/ConnectWithoutContact';
+import MapIcon from '@mui/icons-material/Map';
 import CloseIcon from '@mui/icons-material/Close';
 import { AppSearchBox } from "../appSearchBox/AppSearchBox";
+import { Contact } from "../contact/Contact";
 
 type PropsAppSidebar = {
   open: boolean,
@@ -25,18 +37,23 @@ const routes: Route[] = [
   {
     label: 'Home',
     path: navRoutes.home().path,
-    icon: <HomeIcon/>,
+    icon: <HomeIcon color="primary"/>
   },
   {
     label: 'Projects',
     path: navRoutes.projects().path,
-    icon: <EngineeringIcon/>,
+    icon: <EngineeringIcon color="primary"/>,
   },
   {
     label: 'Soft Skills',
     path: navRoutes.softSkills().path,
-    icon: <ConnectWithoutContactIcon/>
+    icon: <ConnectWithoutContactIcon color="primary"/>
   },
+  {
+    label: 'Visited Locations',
+    path: navRoutes.visited().path,
+    icon: <MapIcon color="primary"/>
+  }
 ];
 
 export function AppSidebar(props: PropsAppSidebar) {
@@ -47,6 +64,7 @@ export function AppSidebar(props: PropsAppSidebar) {
   } = props;
   
   const {
+    spacing,
     palette: {
       text: {
         secondary: textSecondary,
@@ -86,6 +104,8 @@ export function AppSidebar(props: PropsAppSidebar) {
             {isMobile &&
             <AppSearchBox
               iconPosition="start"
+              disableUnderline
+              onNavigate={onClose}
               sx={isMobile ? {
                 maxWidth: '70vw',
               } : null}
@@ -124,6 +144,15 @@ export function AppSidebar(props: PropsAppSidebar) {
           </List>
 
         </Box>
+
+        <Contact
+          box={{
+            position: 'absolute',
+            bottom: 0,
+            width: '100%',
+            padding: spacing(1, 1, 2, 1),
+          }}
+        />
       </Box>
     </SwipeableDrawer>
   )

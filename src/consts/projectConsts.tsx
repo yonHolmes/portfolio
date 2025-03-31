@@ -118,7 +118,7 @@ export const projectsHomeRecord: Record<ProjectHomeKeys, Project> = {
     ]
   },
   projectMaintainMultiLayeredWabAppAndBot: {
-    label: 'Maintain a Multi-Layered Web App and bot',
+    label: 'Maintain a Multi-Layered Web App and Bot',
     href: navRoutes.projectMaintainMultiLayeredWabAppAndBot().path,
     description: 'I maintain a Web App, Discord Bot, API, and Backend for a Friend.',
     tags: [

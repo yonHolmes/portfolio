@@ -4,6 +4,7 @@ import { AppBar, Box, IconButton, Toolbar, Typography, useTheme } from "@mui/mat
 import Link from "next/link";
 import { Menu } from "@mui/icons-material";
 import { usePathname } from "next/navigation";
+import { Contact } from "../contact/Contact";
 
 type PropsApplicationBar = {
   openSidebar?: () => void,
@@ -32,6 +33,7 @@ export function ApplicationBar({ openSidebar, toolbar }: PropsApplicationBar) {
             flexDirection="row"
             alignItems="center"
             flexShrink="0"
+            gap={1}
           >
             <IconButton onClick={openSidebar}>
               <Menu color="secondary"/>
@@ -44,6 +46,10 @@ export function ApplicationBar({ openSidebar, toolbar }: PropsApplicationBar) {
           </Box>
 
           {toolbar ?? null}
+
+          <Contact box={{
+            marginLeft: 'auto',
+          }}/>
 
         </Toolbar>
       </AppBar>

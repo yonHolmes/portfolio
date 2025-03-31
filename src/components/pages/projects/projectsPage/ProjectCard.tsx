@@ -65,19 +65,21 @@ export function ProjectCard(props: PropsProjectCard) {
             {description}
           </Typography>}
         </Box>
-        <Box display="flex" flexDirection="row" justifyContent="space-between">
-          
-          {tags &&
-          <Box display="flex" flexDirection="row" flexWrap="wrap" gap={1} marginTop="auto" paddingTop={1}>
-            {tags.map(tag => <Chip key={tag} label={tag}/>)}
-          </Box>}
+        <Box width="100%" display="flex" flexDirection="row" justifyContent="space-between">
 
-          {showNavButton &&
-          <Box marginLeft="auto">
-            <Button onClick={handleNav} sx={{ textTransform: 'none' }}>
+          <Box width="100%" display="flex" flexDirection="row" flexWrap="wrap" gap={1} marginTop="auto" paddingTop={1}>
+            {tags?.map(tag => <Chip key={tag} label={tag}/>)}
+            
+            {showNavButton &&
+            <Button
+              onClick={handleNav}
+              sx={{
+                textTransform: 'none',
+                marginLeft: 'auto',
+              }}>
               View
-            </Button>
-          </Box>}
+            </Button>}
+          </Box>
         </Box>
       </Box>
     </Card>

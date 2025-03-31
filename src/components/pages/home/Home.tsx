@@ -10,6 +10,7 @@ import { useBreakpoints } from "@/hooks/useBreakpoints";
 import { ImageClient } from "@/components/generic/image/ImageClient";
 import { Proficiency } from "@/components/generic/proficiency/Proficiency";
 import { proficiencies, ProficiencyInfo } from "@/consts/proficiencyConsts";
+import { useRouter } from "next/navigation";
 
 const medallionMinWidth = "150px";
 
@@ -46,7 +47,7 @@ export function Home() {
       </Typography>
 
       <Typography marginTop={2}>
-        You can {/*click the tiles below, or*/} browse my portfolio from the Menu via the App Bar
+        You can browse my portfolio from the Menu in the App Bar.
       </Typography>
 
       <Box
@@ -77,6 +78,18 @@ function ProficiencyFromConst(props: {
 }) {
   const { data } = props;
 
+  const router = useRouter();
+  function onNav(path: string) {
+    router.push(path);
+  }
+
+  const onClick = data?.onClick
+    ? () => {
+      console.log('Proficiency onClick', data?.onClick);
+      data?.onClick?.(onNav);
+    }
+    : undefined;
+
   return (
     <Proficiency
       skill={data.skill}
@@ -84,7 +97,10 @@ function ProficiencyFromConst(props: {
       width={medallionMinWidth}
       contrastingBackground={data.contrastingBackground}
       tooltip={data.tooltip}
-      onClick={props.onClick}
+      onClick={
+        // Empty Func here to enable the pointer behavior
+        onClick ? () => {} : undefined
+      }
     >
       {data.image
         ?
@@ -94,6 +110,7 @@ function ProficiencyFromConst(props: {
           heightSkeleton={110}
           src={data.image.src}
           alt={data.image.alt}
+          onClick={onClick}
         />
         :
         <Box
@@ -101,6 +118,7 @@ function ProficiencyFromConst(props: {
           flexDirection="column"
           justifyContent="center"
           height={data.height ?? 100}
+          onClick={onClick}
         >
           <Typography
             textAlign="center"

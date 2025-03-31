@@ -12,7 +12,8 @@ import { ApplicationBar } from "../applicationBar/ApplicationBar";
 import { navRoutes } from "@/consts/navigationConsts";
 import Link from 'next/link';
 import { useIsClient } from "usehooks-ts";
-import { AppSearchBox } from "../appSearchBox/AppSearchBox";
+import { AppSearchBox } from "@/components/elements/appSearchBox/AppSearchBox";
+import { Contact } from "@/components/elements/contact/Contact";
 
 const routes = [
   {
@@ -47,7 +48,8 @@ export function App({ children }: PropsWithChildren) {
         toolbar={
           // Only try and render, once we're past the first render
           (!isMobile && isClient)
-          ? <Box
+          ? <>
+            <Box
               id="ApplicationToolbarContent"
               display="flex"
               justifyContent="flex-start"
@@ -67,6 +69,7 @@ export function App({ children }: PropsWithChildren) {
               )}
               <AppSearchBox/>
             </Box>
+          </>
           : null
         }
       />
@@ -75,7 +78,7 @@ export function App({ children }: PropsWithChildren) {
         Toolbar approach from MUI to offset the App Bar's Height for scrolling
         Note if the Actual (AppBar)Toolbar overflows to two lines, then this approach breaks down
         */}
-        <Toolbar />
+        <Toolbar id="AppBarOffsetToolbar" />
         <Box padding={1}>
           {children}
         </Box>

@@ -21,6 +21,8 @@ type navKeys = 'home'
   | 'projectMaintainMultiLayeredWabAppAndBot'
 
   | 'softSkills'
+
+  | 'visited'
 ;
 
 type NavRoutes = Record<
@@ -81,5 +83,10 @@ export const navRoutes: NavRoutes = {
   softSkills: () => ({
     path: '/softSkills',
     fullPath: `${BASE_PATH}/softSkills`,
-  })
+  }),
+
+  visited: () => ({
+    path: '/visited',
+    fullPath: `${BASE_PATH}/visited`,
+  }),
 }
