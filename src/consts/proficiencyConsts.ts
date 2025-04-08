@@ -173,6 +173,15 @@ export const proficiencies: Record<string, ProficiencyInfo> = {
     onClick: (handleNav) => handleNav?.(navRoutes.visited().path),
     // width: '130px',
   },
+  godot: {
+    skill: 'Godot',
+    tooltip: 'Godot',
+    level: 2,
+    image: {
+        src: `${IMAGE_BASE_PATH}/godot-logo.svg`,
+        alt: 'Godot Logo',
+    },
+  },
   videoEditing: {
     skill: 'Video Editing',
     level: 4,

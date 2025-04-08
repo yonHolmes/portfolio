@@ -29,6 +29,7 @@ const profArray = [
   proficiencies.versionControl,
   proficiencies.express,
   proficiencies.jira,
+  proficiencies.godot,
   proficiencies.fabric,
   proficiencies.java,
   proficiencies.googleMaps,
