@@ -5,6 +5,7 @@ import {
  Box,
  Typography,
  Button,
+ Link,
 } from "@mui/material";
 import { useBreakpoints } from "@/hooks/useBreakpoints";
 import { ImageClient } from "@/components/generic/image/ImageClient";
@@ -30,6 +31,8 @@ const profArray = [
   proficiencies.express,
   proficiencies.jira,
   proficiencies.godot,
+  proficiencies.docker,
+  proficiencies.cypress,
   proficiencies.fabric,
   proficiencies.java,
   proficiencies.googleMaps,
@@ -48,7 +51,8 @@ export function Home() {
       </Typography>
 
       <Typography marginTop={2}>
-        You can browse my portfolio from the Menu in the App Bar.
+        You can browse my portfolio from the Menu in the App Bar,
+        and the Source Code from <Link href="https://github.com/yonHolmes/portfolio" target="_blank">here</Link>.
       </Typography>
 
       <Box

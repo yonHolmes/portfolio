@@ -14,6 +14,7 @@ import {
 import { useRouter } from "next/navigation";
 import { ReactNode } from "react";
 import HomeIcon from '@mui/icons-material/Home';
+import WaterboardIcon from '@mui/icons-material/School';
 import EngineeringIcon from '@mui/icons-material/Engineering';
 import ConnectWithoutContactIcon from '@mui/icons-material/ConnectWithoutContact';
 import MapIcon from '@mui/icons-material/Map';
@@ -53,6 +54,11 @@ const routes: Route[] = [
     label: 'Visited Locations',
     path: navRoutes.visited().path,
     icon: <MapIcon color="primary"/>
+  },
+  {
+    label: 'Education',
+    path: navRoutes.education().path,
+    icon: <WaterboardIcon color="primary"/>
   }
 ];
 

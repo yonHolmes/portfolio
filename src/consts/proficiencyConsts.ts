@@ -25,7 +25,7 @@ export const proficiencies: Record<string, ProficiencyInfo> = {
     // width: '156px',
     contrastingBackground: true,
     image: {
-      src: `${IMAGE_BASE_PATH}/nodejs.svg`,
+      src: `${IMAGE_BASE_PATH}/proficiencies/nodejs.svg`,
       alt: 'Node.js Logo',
     }
   },
@@ -35,7 +35,7 @@ export const proficiencies: Record<string, ProficiencyInfo> = {
     level: 8,
     // width: '100px',
     image: {
-      src: `${IMAGE_BASE_PATH}/react-2.svg`,
+      src: `${IMAGE_BASE_PATH}/proficiencies/react-2.svg`,
       alt: 'React Logo',
     }
   },
@@ -46,7 +46,7 @@ export const proficiencies: Record<string, ProficiencyInfo> = {
     // width: '156px',
     contrastingBackground: true,
     image: {
-      src: `${IMAGE_BASE_PATH}/microsoft-sql-server-1.svg`,
+      src: `${IMAGE_BASE_PATH}/proficiencies/microsoft-sql-server-1.svg`,
       alt: 'Microsoft SQL Server Logo',
     },
   },
@@ -56,7 +56,7 @@ export const proficiencies: Record<string, ProficiencyInfo> = {
     level: 3,
     // width: '100px',
     image: {
-      src: `${IMAGE_BASE_PATH}/c--4.svg`,
+      src: `${IMAGE_BASE_PATH}/proficiencies/c--4.svg`,
       alt: 'C# Logo',
     },
   },
@@ -66,7 +66,7 @@ export const proficiencies: Record<string, ProficiencyInfo> = {
     level: 2,
     // width: '80px',
     image: {
-      src: `${IMAGE_BASE_PATH}/java-4.svg`,
+      src: `${IMAGE_BASE_PATH}/proficiencies/java-4.svg`,
       alt: 'Java Logo',
     },
   },
@@ -76,7 +76,7 @@ export const proficiencies: Record<string, ProficiencyInfo> = {
     level: 5,
     // width: '100px',
     image: {
-      src: `${IMAGE_BASE_PATH}/typescript-2.svg`,
+      src: `${IMAGE_BASE_PATH}/proficiencies/typescript-2.svg`,
       alt: 'TypeScript Logo',
     },
   },
@@ -87,7 +87,7 @@ export const proficiencies: Record<string, ProficiencyInfo> = {
     // width: '100px',
     contrastingBackground: true,
     image: {
-      src: `${IMAGE_BASE_PATH}/aws-2.svg`,
+      src: `${IMAGE_BASE_PATH}/proficiencies/aws-2.svg`,
       alt: 'AWS Logo',
     },
   },
@@ -97,7 +97,7 @@ export const proficiencies: Record<string, ProficiencyInfo> = {
     level: 2,
     // width: '100px',
     image: {
-      src: `${IMAGE_BASE_PATH}/fabric_48_color.svg`,
+      src: `${IMAGE_BASE_PATH}/proficiencies/fabric_48_color.svg`,
       alt: 'Microsoft Fabric Logo',
     },
   },
@@ -107,7 +107,7 @@ export const proficiencies: Record<string, ProficiencyInfo> = {
     level: 5,
     // width: '100px',
     image: {
-      src: `${IMAGE_BASE_PATH}/jira-1.svg`,
+      src: `${IMAGE_BASE_PATH}/proficiencies/jira-1.svg`,
       alt: 'Jira',
     },
   },
@@ -117,7 +117,7 @@ export const proficiencies: Record<string, ProficiencyInfo> = {
     level: 5,
     // width: '100px',
     image: {
-      src: `${IMAGE_BASE_PATH}/mysql-3.svg`,
+      src: `${IMAGE_BASE_PATH}/proficiencies/mysql-3.svg`,
       alt: 'MySQL',
     },
   },
@@ -127,7 +127,7 @@ export const proficiencies: Record<string, ProficiencyInfo> = {
     level: 4,
     // width: '100px',
     image: {
-      src: `${IMAGE_BASE_PATH}/mongodb-icon-2.svg`,
+      src: `${IMAGE_BASE_PATH}/proficiencies/mongodb-icon-2.svg`,
       alt: 'MongoDB Logo',
     },
   },
@@ -138,7 +138,7 @@ export const proficiencies: Record<string, ProficiencyInfo> = {
     // width: '100px',
     contrastingBackground: true,
     image: {
-      src: `${IMAGE_BASE_PATH}/next-js.svg`,
+      src: `${IMAGE_BASE_PATH}/proficiencies/next-js.svg`,
       alt: 'NEXT.js Logo',
     },
   },
@@ -148,16 +148,17 @@ export const proficiencies: Record<string, ProficiencyInfo> = {
     level: 6,
     // width: '100px',
     image: {
-      src: `${IMAGE_BASE_PATH}/electron-1.svg`,
+      src: `${IMAGE_BASE_PATH}/proficiencies/electron-1.svg`,
       alt: 'Electron Logo',
     },
   },
   versionControl: {
     skill: 'Version Control/GIT',
+    tooltip: 'Version Control/GIT',
     level: 7,
     contrastingBackground: true,
     image: {
-      src: `${IMAGE_BASE_PATH}/git.svg`,
+      src: `${IMAGE_BASE_PATH}/proficiencies/git.svg`,
       alt: 'GIT Logo',
     },
     // width: '120px',
@@ -165,9 +166,9 @@ export const proficiencies: Record<string, ProficiencyInfo> = {
   googleMaps: {
     skill: 'Google Maps',
     tooltip: 'Google Maps',
-    level: 3,
+    level: 2,
     image: {
-      src: `${IMAGE_BASE_PATH}/google-maps-logo-2020.svg`,
+      src: `${IMAGE_BASE_PATH}/proficiencies/google-maps-logo-2020.svg`,
       alt: 'Google Maps Logo 2020',
     },
     onClick: (handleNav) => handleNav?.(navRoutes.visited().path),
@@ -178,7 +179,7 @@ export const proficiencies: Record<string, ProficiencyInfo> = {
     tooltip: 'Godot',
     level: 2,
     image: {
-        src: `${IMAGE_BASE_PATH}/godot-logo.svg`,
+        src: `${IMAGE_BASE_PATH}/proficiencies/godot-logo.svg`,
         alt: 'Godot Logo',
     },
   },
@@ -192,7 +193,7 @@ export const proficiencies: Record<string, ProficiencyInfo> = {
     tooltip: 'Express',
     level: 3,
     image: {
-      src: `${IMAGE_BASE_PATH}/express.png`,
+      src: `${IMAGE_BASE_PATH}/proficiencies/express.png`,
       alt: 'Express Logo',
     },
     height: 120,
@@ -202,5 +203,24 @@ export const proficiencies: Record<string, ProficiencyInfo> = {
     skill: 'Monorepos',
     level: 3,
     // width: '120px',
-  }
+  },
+  cypress: {
+    skill: 'Cypress',
+    tooltip: 'Cypress',
+    level: 2,
+    image: {
+      src: `${IMAGE_BASE_PATH}/proficiencies/cypress.svg`,
+      alt: 'Cypress Logo',
+    },
+    contrastingBackground: true,
+  },
+  docker: {
+    skill: 'Docker',
+    tooltip: 'Docker',
+    level: 2,
+    image: {
+      src: `${IMAGE_BASE_PATH}/proficiencies/docker.svg`,
+      alt: 'Docker Logo',
+    },
+  },
 }

@@ -23,6 +23,8 @@ type navKeys = 'home'
   | 'softSkills'
 
   | 'visited'
+
+  | 'education'
 ;
 
 type NavRoutes = Record<
@@ -89,4 +91,11 @@ export const navRoutes: NavRoutes = {
     path: '/visited',
     fullPath: `${BASE_PATH}/visited`,
   }),
+
+  education: () => ({
+    path: '/education',
+    fullPath: `${BASE_PATH}/education`,
+  }),
+
+
 }
