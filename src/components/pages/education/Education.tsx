@@ -3,6 +3,7 @@
 import { education } from "@/consts/educationConsts";
 import { getObjectValues } from "@/helpers/typescriptHelper";
 import {
+  Box,
   Stack,
   Typography,
 } from "@mui/material";
@@ -28,9 +29,9 @@ export function Education() {
             knowledge with some form of education such as Certifications and Courses.
           </Typography>
 
-          {educationArr.map(edu =>
-          <EducationCard key={edu.education} data={edu}/>)}
-
+            {educationArr.map(edu =>
+              <EducationCard key={edu.education} data={edu}/>
+            )}
 
         </Stack>
       </section>

@@ -6,6 +6,7 @@ import { navRoutes } from "./navigationConsts";
 export const educationType = {
   certification: 'cert',
   course: 'course',
+  learningPath: 'learningPath',
 } as const;
 
 export type EducationType = typeof educationType[keyof typeof educationType];
@@ -20,7 +21,10 @@ export const educationTypeToInfo: Record<EducationType, EducationTypeInfo> = {
   },
   [educationType.course]: {
     name: 'Course',
-  }
+  },
+  [educationType.learningPath]: {
+    name: 'Learning Path',
+  },
 }
 
 export type EducationInfo = {
@@ -71,9 +75,24 @@ export const education: Record<string, EducationInfo> = {
   },
   dockerEssentials: {
     education: 'Docker Essentials',
-    educationURL: '',
+    educationURL: 'https://www.udemy.com/share/101rq43@3saNlMzkfLGRh3N7SddA5YJY1uL4J4nuYX4IVcgk-WmnJm_a5J-luq1HLf-zZgp4nQ==/',
     type: educationType.course,
     date: new Date('2025-03-10'),
     dateStr: 'March 2025'
+  },
+  mobileDesktopAppsWithMaui: {
+    education: 'Build mobile and desktop apps with .NET MAUI',
+    educationURL: 'https://learn.microsoft.com/en-us/training/paths/build-apps-with-dotnet-maui/',
+    type: educationType.learningPath,
+    date: new Date('2025-02-01'),
+    dateStr: 'Feb 2025',
+  },
+  learningFabric: {
+    education: 'Get started with Microsoft Fabric',
+    educationURL: 'https://learn.microsoft.com/en-us/training/paths/get-started-fabric/',
+    verificationURL: 'https://learn.microsoft.com/en-us/users/yonholmes-8039/achievements/3yvup4rh?ref=https%3A%2F%2Fwww.linkedin.com%2F',
+    type: educationType.learningPath,
+    date: new Date('2024-06-01'),
+    dateStr: 'June 2024',  
   }
 }
