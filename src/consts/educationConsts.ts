@@ -7,6 +7,7 @@ export const educationType = {
   certification: 'cert',
   course: 'course',
   learningPath: 'learningPath',
+  degree: 'degree',
 } as const;
 
 export type EducationType = typeof educationType[keyof typeof educationType];
@@ -25,10 +26,14 @@ export const educationTypeToInfo: Record<EducationType, EducationTypeInfo> = {
   [educationType.learningPath]: {
     name: 'Learning Path',
   },
+  [educationType.degree]: {
+    name: 'Degree',
+  },
 }
 
 export type EducationInfo = {
   education: string,
+  subText?: string,
   educationURL?: string,
   verificationURL?: string,
   image?: {
@@ -94,5 +99,19 @@ export const education: Record<string, EducationInfo> = {
     type: educationType.learningPath,
     date: new Date('2024-06-01'),
     dateStr: 'June 2024',  
+  },
+  computerScienceDegree: {
+    education: 'Computer Science Degree (1st)',
+    subText: 'Oxford Brookes',
+    type: educationType.degree,
+    date: new Date('2014-09-01'),
+    dateStr: '2011 - 2014',
+  },
+  foundationDegree: {
+    education: 'Foundation Technology',
+    subText: 'Oxford Brookes',
+    type: educationType.degree,
+    date: new Date('2011-09-01'),
+    dateStr: '2010 - 2011',
   }
 }
