@@ -3,7 +3,6 @@
 import { AppBar, Box, IconButton, Toolbar, Typography, useTheme } from "@mui/material";
 import Link from "next/link";
 import { Menu } from "@mui/icons-material";
-import { usePathname } from "next/navigation";
 import { Contact } from "../contact/Contact";
 
 type PropsApplicationBar = {

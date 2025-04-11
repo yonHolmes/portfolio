@@ -13,7 +13,6 @@ import { navRoutes } from "@/consts/navigationConsts";
 import Link from 'next/link';
 import { useIsClient } from "usehooks-ts";
 import { AppSearchBox } from "@/components/elements/appSearchBox/AppSearchBox";
-import { Contact } from "@/components/elements/contact/Contact";
 
 const routes = [
   {

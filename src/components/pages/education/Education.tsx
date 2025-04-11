@@ -71,7 +71,7 @@ export function Education() {
                   // some extra flexability
                   - 3
                 }%`}
-                height="160px"
+                minHeight="160px"
               >
                 <EducationCard  data={edu}/>
               </Box>

@@ -11,8 +11,6 @@ import {
 } from "@mui/material";
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import EmailIcon from '@mui/icons-material/Email';
-import WorkIcon from '@mui/icons-material/Work';
-import ConnectWithoutContactIcon from '@mui/icons-material/ConnectWithoutContact';
 import { ComponentProps, useState } from "react";
 import { ContactEmailDialog } from "./ContactEmailDialog";
 

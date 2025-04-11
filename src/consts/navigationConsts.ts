@@ -25,6 +25,8 @@ type navKeys = 'home'
   | 'visited'
 
   | 'education'
+
+  | 'references'
 ;
 
 type NavRoutes = Record<
@@ -95,6 +97,11 @@ export const navRoutes: NavRoutes = {
   education: () => ({
     path: '/education',
     fullPath: `${BASE_PATH}/education`,
+  }),
+
+  references: () => ({
+    path: '/references',
+    fullPath: `${BASE_PATH}/references`,
   }),
 
 

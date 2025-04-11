@@ -1,3 +1,4 @@
+import { navRoutes } from "./navigationConsts";
 import { ProjectHomeKeys, projectsHomeRecord, projectsWorkRecord, ProjectWorkKeys } from "./projectConsts";
 
 const tagGroups = {
@@ -190,5 +191,45 @@ export const searchableData: SearchData[] = [
         'server',
       ]
     ),
-  })
+  }),
+
+  // Courses
+  {
+    label: 'AWS (Zero to Hero)',
+    href: navRoutes.education().path,
+    keyTags: [
+      'Course',
+      'AWS',
+    ],
+    searchTerms: [
+      'Course',
+      'AWS',
+    ]
+  },
+  {
+    label: 'Docker Essentials',
+    href: navRoutes.education().path,
+    keyTags: [
+      'Course',
+      'Docker',
+    ],
+    searchTerms: [
+      'Course',
+      'Docker',
+      'Container',
+    ],
+  },
+  {
+    label: 'Foundational C#',
+    href: navRoutes.education().path,
+    keyTags: [
+      'Certification',
+      'C#',
+    ],
+    searchTerms: [
+      'Certification',
+      'Course',
+      ...tagGroups.cSharp,
+    ],
+  },
 ]

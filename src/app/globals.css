@@ -24,7 +24,25 @@ a {
   text-decoration: none;
 }
 
-
 .HomePopup {
   background-color: green;
+}
+
+/*
+On the References Page, I had "fun" with scrollbars; it is a principle of mine I have
+decided on from an issue a Client had that if something is scrollable; it should
+have a Scrollbar, because it can happen that people don't realise they can scroll
+without one.
+So for now, this makes the windows scrollbars nicer until I find a better workaround.
+*/
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1D388F61;
+}
+::-webkit-scrollbar-thumb {
+  background: #E4EFEF;
+  border-radius: 2px;
 }

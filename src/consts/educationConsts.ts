@@ -97,14 +97,14 @@ export const education: Record<string, EducationInfo> = {
     educationURL: 'https://learn.microsoft.com/en-us/training/paths/get-started-fabric/',
     verificationURL: 'https://learn.microsoft.com/en-us/users/yonholmes-8039/achievements/3yvup4rh?ref=https%3A%2F%2Fwww.linkedin.com%2F',
     type: educationType.learningPath,
-    date: new Date('2024-06-01'),
-    dateStr: 'June 2024',  
+    date: new Date('2024-05-21'),
+    dateStr: 'May 2024',  
   },
   computerScienceDegree: {
     education: 'Computer Science Degree (1st)',
     subText: 'Oxford Brookes',
     type: educationType.degree,
-    date: new Date('2014-09-01'),
+    date: new Date('2014-06-05'),
     dateStr: '2011 - 2014',
   },
   foundationDegree: {

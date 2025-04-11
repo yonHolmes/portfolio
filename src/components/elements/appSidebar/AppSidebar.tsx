@@ -18,6 +18,7 @@ import WaterboardIcon from '@mui/icons-material/School';
 import EngineeringIcon from '@mui/icons-material/Engineering';
 import ConnectWithoutContactIcon from '@mui/icons-material/ConnectWithoutContact';
 import MapIcon from '@mui/icons-material/Map';
+import ThreePIcon from '@mui/icons-material/ThreeP';
 import CloseIcon from '@mui/icons-material/Close';
 import { AppSearchBox } from "../appSearchBox/AppSearchBox";
 import { Contact } from "../contact/Contact";
@@ -51,15 +52,20 @@ const routes: Route[] = [
     icon: <ConnectWithoutContactIcon color="primary"/>
   },
   {
-    label: 'Visited Locations',
-    path: navRoutes.visited().path,
-    icon: <MapIcon color="primary"/>
+    label: 'References',
+    path: navRoutes.references().path,
+    icon: <ThreePIcon color="primary"/>
   },
   {
     label: 'Education',
     path: navRoutes.education().path,
     icon: <WaterboardIcon color="primary"/>
-  }
+  },
+  {
+    label: 'Visited Locations',
+    path: navRoutes.visited().path,
+    icon: <MapIcon color="primary"/>
+  },
 ];
 
 export function AppSidebar(props: PropsAppSidebar) {
