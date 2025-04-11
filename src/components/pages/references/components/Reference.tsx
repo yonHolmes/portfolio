@@ -42,7 +42,7 @@ export function ReferenceItem({ reference }: PropsReference) {
         {
             reference.linkedIn
               ? (
-                <IconButton color="primary">
+                <IconButton color="primary" sx={{ width: '50px' }}>
                   <a
                     target="_blank"
                     href={reference.linkedIn}
