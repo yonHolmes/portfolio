@@ -36,7 +36,7 @@ export const referenceConsts: Reference[] = [
     ),
   },
   {
-    person: 'GP',
+    person: 'Grant Pritchard',
     linkedIn: 'https://www.linkedin.com/in/grant-pritchard-00401b199/',
     association: 'Old Colleague',
     content: (
