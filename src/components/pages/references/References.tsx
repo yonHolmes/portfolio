@@ -45,6 +45,69 @@ function CustomArrows() {
   );
 }
 
+function MainBody({ isTouched, tabletUp }: { isTouched: boolean, tabletUp: boolean }) {
+
+  if (!tabletUp) {
+    return (
+      <Box>
+        {referenceConsts.map((reference, idx) => {
+          return (
+            <Box
+              key={idx}
+              width="100vw"
+              padding={3}
+              paddingLeft={1}
+              flexShrink={0}
+            >
+              <ReferenceItem
+                reference={reference}
+              />
+            </Box>
+          )
+        })}
+      </Box>
+    )
+  }
+
+  return (
+    <Box
+      // maxHeight="calc(100vh - 250px)"
+      width="100vw"
+    >
+      <StyledCarousel
+        title="References"
+        showArrows={
+            // Hide arrows when using mobile (state gets broken)
+            !isTouched
+        }
+        wrapMode="wrap"
+        scrollDistance="slide"
+        swiping={
+          // On Mobile you can still swipe, hence the onTouchStart above
+          false
+        }
+        arrows={<CustomArrows/>}
+      >
+        {referenceConsts.map((reference, idx) => {
+          return (
+            <Box
+              key={idx}
+              width="100vw"
+              padding={3}
+              paddingLeft={1}
+              flexShrink={0}
+            >
+              <ReferenceItem
+                reference={reference}
+              />
+            </Box>
+          )
+        })}
+      </StyledCarousel>
+    </Box>
+  )
+}
+
 export function References() {
   const [isTouched, setIsTouched] = useState(false);
 
@@ -59,7 +122,12 @@ export function References() {
   return (
     <div>
       <section>
-        <Stack gap={1}>
+        <Stack
+          gap={1}
+          onTouchStart={() => {
+            setIsTouched(true);
+          }}
+        >
           <Typography variant="h5">
             References ({referenceConsts.length})
           </Typography>
@@ -70,52 +138,7 @@ export function References() {
             with their permission.
           </Typography> */}
 
-          <Box
-            // maxHeight="calc(100vh - 250px)"
-            width="100vw"
-            onTouchStart={() => {
-              setIsTouched(true);
-            }}
-          >
-            <StyledCarousel
-              title="References"
-              showArrows={
-                  // Hide arrows when using mobile (state gets broken)
-                  !isTouched &&
-                  (
-                    // Hide arrows if showing 2 and there's only 2
-                    // Otherwise I know there's 2 so show them
-                    (
-                      tabletUp && referenceConsts.length > 2
-                    ) || !tabletUp
-                  )
-              }
-              wrapMode="wrap"
-              scrollDistance="slide"
-              swiping={
-                // On Mobile you can still swipe, hence the onTouchStart above
-                false
-              }
-              arrows={<CustomArrows/>}
-            >
-              {referenceConsts.map((reference, idx) => {
-                return (
-                  <Box
-                    key={idx}
-                    width={tabletUp ? '50vw' : '100vw'}
-                    // maxWidth="100vw"
-                    padding={3}
-                    paddingLeft={1}
-                    flexShrink={0}
-                  >
-                    <ReferenceItem
-                      reference={reference}
-                    />
-                  </Box>
-                )
-              })}
-            </StyledCarousel>
-          </Box>
+          {MainBody({ isTouched, tabletUp })}
 
         </Stack>
       </section>

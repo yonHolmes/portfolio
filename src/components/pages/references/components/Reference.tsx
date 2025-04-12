@@ -64,7 +64,7 @@ export function ReferenceItem({ reference }: PropsReference) {
         flexDirection="column"
         gap={2}
         padding={2}
-        marginTop={2}
+        marginTop={1}
         paddingRight={2}
         height="50vh"
         sx={{

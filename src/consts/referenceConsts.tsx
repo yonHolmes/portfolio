@@ -30,14 +30,19 @@ export const referenceConsts: Reference[] = [
     linkedIn: 'https://www.linkedin.com/in/aidanlowson1/',
     association: 'Old Colleague',
     content: (
-      <Typography
-        sx={{
-          display: 'inline-block',
-          whiteSpace: 'pre-line',
-        }}
-      >
+      <Typography>
         "Yon's a fantastic person to work with, if you're stuck on a problem he will  give you his time and patience ensuring you come away with knowledge of how to fix the problem yourself next time"
       </Typography>
     ),
   },
+  {
+    person: 'GP',
+    linkedIn: 'https://www.linkedin.com/in/grant-pritchard-00401b199/',
+    association: 'Old Colleague',
+    content: (
+      <Typography>
+        I worked with Yon for 6 years and he was a pleasure to work with, he always has a positive attitude and he is always happy to give direction and help.
+      </Typography>
+    )
+  }
 ]
