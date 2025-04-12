@@ -101,7 +101,7 @@ export const education: Record<string, EducationInfo> = {
     dateStr: 'May 2024',  
   },
   computerScienceDegree: {
-    education: 'Computer Science Degree (1st)',
+    education: 'Computer Science Degree (First Class Honors)',
     subText: 'Oxford Brookes',
     type: educationType.degree,
     date: new Date('2014-06-05'),
