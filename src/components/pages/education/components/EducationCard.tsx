@@ -66,19 +66,44 @@ export function EducationCard({ data }: PropsEducationCard) {
         <Box
           display="flex"
           flexDirection="row"
-          justifyContent="flex-end"
-          gap={2}
+          justifyContent="space-between"
           width="100%"
-        >
-          {data.verificationURL &&
-          <Link href={data.verificationURL} target="_blank">
-            Verify Completion
-          </Link>}
+          paddingLeft={1}        >
+          {data.skills &&
+          <Box
+            display="flex"
+            flexDirection="row"
+            alignItems="center"
+            gap={2}
+          >
+            {data.skills.map(skill =>
+              <Typography
+                variant="caption"
+                fontStyle="italic"
+              >
+                {skill}
+              </Typography>
+            )}
+          </Box>}
+
           
-          {data.educationURL &&
-          <Link href={data.educationURL} target="_blank">
-            Page
-          </Link>}
+          <Box
+            display="flex"
+            flexDirection="row"
+            alignItems="center"
+            gap={2}
+            marginLeft="auto"
+          >
+            {data.verificationURL &&
+            <Link href={data.verificationURL} target="_blank">
+              Verify Completion
+            </Link>}
+            
+            {data.educationURL &&
+            <Link href={data.educationURL} target="_blank">
+              Page
+            </Link>}
+          </Box>
         </Box>
       </CardActions>
     </Card>

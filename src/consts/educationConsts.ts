@@ -42,11 +42,21 @@ export type EducationInfo = {
   },
   onClick?: (onNav: (path: string) => void) => void,
   type: EducationType,
+  skills?: string[],
   date: Date,
   dateStr: string,
 }
 
 export const education: Record<string, EducationInfo> = {
+  godotCActionAdventure: {
+    education: 'Godot 4 C# Action Adventure: Build your own 2.5D RPG',
+    subText: 'GameDev.tv',
+    educationURL: 'https://www.gamedev.tv/courses/godot-c-action-adventure',
+    type: educationType.course,
+    date: new Date('2025-04-12'),
+    dateStr: 'Feb-April 2025',
+    skills: ['C#', 'Godot'],
+  },
   foundationalCSharp: {
     education: 'Foundational C#',
     educationURL: 'https://www.freecodecamp.org/learn/foundational-c-sharp-with-microsoft/',
@@ -58,6 +68,7 @@ export const education: Record<string, EducationInfo> = {
     type: educationType.certification,
     date: new Date('2025-02-03'),
     dateStr: 'Feb 2025',
+    skills: ['C#'],
   },
   introToComputerNetworking: {
     education: 'Introduction to Computer Networking',
@@ -70,6 +81,7 @@ export const education: Record<string, EducationInfo> = {
     type: educationType.certification,
     date: new Date('2025-03-04'),
     dateStr: 'March 2025',
+    skills: ['Computer Networking'],
   },
   awsZeroToHero: {
     education: 'Amazon Web Services (AWS) - Zero to Hero',
@@ -83,7 +95,8 @@ export const education: Record<string, EducationInfo> = {
     educationURL: 'https://www.udemy.com/share/101rq43@3saNlMzkfLGRh3N7SddA5YJY1uL4J4nuYX4IVcgk-WmnJm_a5J-luq1HLf-zZgp4nQ==/',
     type: educationType.course,
     date: new Date('2025-03-10'),
-    dateStr: 'March 2025'
+    dateStr: 'March 2025',
+    skills: ['Docker'],
   },
   mobileDesktopAppsWithMaui: {
     education: 'Build mobile and desktop apps with .NET MAUI',
@@ -91,6 +104,7 @@ export const education: Record<string, EducationInfo> = {
     type: educationType.learningPath,
     date: new Date('2025-02-01'),
     dateStr: 'Feb 2025',
+    skills: ['C#', 'MAUI'],
   },
   learningFabric: {
     education: 'Get started with Microsoft Fabric',
@@ -98,7 +112,8 @@ export const education: Record<string, EducationInfo> = {
     verificationURL: 'https://learn.microsoft.com/en-us/users/yonholmes-8039/achievements/3yvup4rh?ref=https%3A%2F%2Fwww.linkedin.com%2F',
     type: educationType.learningPath,
     date: new Date('2024-05-21'),
-    dateStr: 'May 2024',  
+    dateStr: 'May 2024',
+    skills: ['Fabric'],
   },
   computerScienceDegree: {
     education: 'Computer Science Degree (First Class Honors)',
