@@ -179,8 +179,8 @@ export function MapExport(props: PropsMap) {
         if (icon) {
           return (
             <Marker
-              icon={icon}
               key={latLong.join('_')}
+              icon={icon}
               position={latLong}
               
             >

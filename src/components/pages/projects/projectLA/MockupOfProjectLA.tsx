@@ -41,7 +41,6 @@ export function MockupOfProjectLA() {
         {items.map(({ name, total, available, locked }) => {
           const lockedWidth = Math.floor((locked / total) * 100);
           return (
-
               <Box
                 key={name}
                 display="flex"

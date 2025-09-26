@@ -8,9 +8,11 @@ import {
   CardHeader,
   useTheme,
   Typography,
+  CardContent,
 } from "@mui/material";
 import { EducationInfo, educationTypeToInfo } from "@/consts/educationConsts"
 import { SpanHighlight } from "@/components/generic/spanHighlight/SpanHighlight";
+import Image from "next/image";
 
 type PropsEducationCard = {
   data: EducationInfo,
@@ -40,8 +42,8 @@ export function EducationCard({ data }: PropsEducationCard) {
       }}
     >
       <CardHeader
-        title={data.education}
-        subheader={data.subText}
+        title={<Typography variant="h6">{data.education}</Typography>}
+        subheader={<Typography variant="subtitle2">{data.subText}</Typography>}
 
         action={
           <Box
@@ -62,6 +64,33 @@ export function EducationCard({ data }: PropsEducationCard) {
         }
       />
 
+      {data.image &&
+      <CardContent style={{ height: '100px' }}>
+        <Box display="flex" justifyContent="flex-end" height="100%">
+          <>
+            {typeof data.image.src === 'string' ?
+            <Link href={data.image.src} target="_blank">
+              <Image
+                alt={data.education}
+                src={data.image.src}
+                width={0}
+                height={0}
+                sizes="100vw"
+                style={{ width: 'auto', height: '100%' }} // optional
+              />
+            </Link> : 
+            <Image
+              alt={data.education}
+              src={data.image.src}
+              width={0}
+              height={0}
+              sizes="100vw"
+              style={{ width: 'auto', height: '100%' }} // optional
+            />}
+          </>
+        </Box>
+      </CardContent>}
+
       <CardActions>
         <Box
           display="flex"
@@ -78,6 +107,7 @@ export function EducationCard({ data }: PropsEducationCard) {
           >
             {data.skills.map(skill =>
               <Typography
+                key={skill}
                 variant="caption"
                 fontStyle="italic"
               >

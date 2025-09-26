@@ -48,6 +48,15 @@ export type EducationInfo = {
 }
 
 export const education: Record<string, EducationInfo> = {
+  godotComplete3d: {
+    education: 'Complete Godot 3D: Code Your Own 3D Games In Godot 4!',
+    subText: 'GameDev.tv',
+    educationURL: 'https://www.gamedev.tv/courses/godot-complete-3d',
+    type: educationType.course,
+    date: new Date('2025-09-10'),
+    dateStr: 'Aug-Sep 2025',
+    skills: ['GDScript', 'Godot', 'Shaders']
+  },
   godotCActionAdventure: {
     education: 'Godot 4 C# Action Adventure: Build your own 2.5D RPG',
     subText: 'GameDev.tv',
@@ -89,6 +98,7 @@ export const education: Record<string, EducationInfo> = {
     type: educationType.course,
     date: new Date('2025-04-02'),
     dateStr: 'April 2025',
+    skills: ['AWS'],
   },
   dockerEssentials: {
     education: 'Docker Essentials',

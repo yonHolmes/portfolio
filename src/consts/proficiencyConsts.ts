@@ -177,7 +177,7 @@ export const proficiencies: Record<string, ProficiencyInfo> = {
   godot: {
     skill: 'Godot',
     tooltip: 'Godot',
-    level: 2,
+    level: 5,
     image: {
         src: `${IMAGE_BASE_PATH}/proficiencies/godot-logo.svg`,
         alt: 'Godot Logo',
@@ -217,10 +217,19 @@ export const proficiencies: Record<string, ProficiencyInfo> = {
   docker: {
     skill: 'Docker',
     tooltip: 'Docker',
-    level: 2,
+    level: 3,
     image: {
       src: `${IMAGE_BASE_PATH}/proficiencies/docker.svg`,
       alt: 'Docker Logo',
     },
   },
+  vue: {
+    skill: 'VUE',
+    tooltip: 'VUE',
+    level: 4,
+    image: {
+      src: `${IMAGE_BASE_PATH}/proficiencies/vue-9.svg`,
+      alt: 'VUE Logo',
+    },
+  }
 }

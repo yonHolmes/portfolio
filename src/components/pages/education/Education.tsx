@@ -9,7 +9,6 @@ import {
 } from "@mui/material";
 import { EducationCard } from "./components/EducationCard";
 import { useBreakpoints } from "@/hooks/useBreakpoints";
-import { useMemo } from "react";
 
 const educationArr = getObjectValues(education)
   .sort(({ date: dateA }, { date: dateB }) => dateA > dateB ? -1 : 1)

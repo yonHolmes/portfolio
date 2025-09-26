@@ -99,8 +99,7 @@ export function SoftSkills() {
             }
 
             {isClient &&
-            skillColumns.map((skllls, idx) => {
-              
+            skillColumns.map((skllls, idx) => { 
               return (
                 <Box
                   key={idx}

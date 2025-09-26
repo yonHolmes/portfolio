@@ -26,6 +26,7 @@ const profArray = [
   proficiencies.aws,
   proficiencies.electron,
   proficiencies.nextJS,
+  proficiencies.vue,
   proficiencies.monorepo,
   proficiencies.versionControl,
   proficiencies.express,
