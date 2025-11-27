@@ -25,6 +25,12 @@ export const metadata: Metadata = {
 
 export default function HomeRoute() {
   console.log('HomeRoute');
+
+  console.log(
+    '%c'+`Haven't had any luck fixing the Hydration issue, if you have ideas, please reach out`,
+    'background-color: darkblue'
+  )
+
   return (
     <Home/>
   );

@@ -17,11 +17,19 @@ export type ProficiencyInfo = {
   onClick?: (onNav: (path: string) => void) => void,
 }
 
+export enum ProficiencyLevel {
+  Novice = "Novice",
+  Beginner = "Beginner",
+  Competent = "Competent",
+  Proficient = "Proficient",
+  Expert = "Expert",
+}
+
 export const proficiencies: Record<string, ProficiencyInfo> = {
   nodeJS: {
     skill: 'Node.js',
     tooltip: 'Node.js',
-    level: 8,
+    level: ProficiencyLevel.Proficient,
     // width: '156px',
     contrastingBackground: true,
     image: {
@@ -32,7 +40,7 @@ export const proficiencies: Record<string, ProficiencyInfo> = {
   react: {
     skill: 'React',
     tooltip: 'React',
-    level: 8,
+    level: ProficiencyLevel.Proficient,
     // width: '100px',
     image: {
       src: `${IMAGE_BASE_PATH}/proficiencies/react-2.svg`,
@@ -42,7 +50,7 @@ export const proficiencies: Record<string, ProficiencyInfo> = {
   mssqlServer: {
     skill: 'Microsoft SQL Server',
     tooltip: 'Microsoft SQL Server',
-    level: 6,
+    level: ProficiencyLevel.Proficient,
     // width: '156px',
     contrastingBackground: true,
     image: {
@@ -53,7 +61,7 @@ export const proficiencies: Record<string, ProficiencyInfo> = {
   cSharp: {
     skill: 'C#',
     tooltip: 'C#',
-    level: 3,
+    level: ProficiencyLevel.Beginner,
     // width: '100px',
     image: {
       src: `${IMAGE_BASE_PATH}/proficiencies/c--4.svg`,
@@ -63,7 +71,7 @@ export const proficiencies: Record<string, ProficiencyInfo> = {
   java: {
     skill: 'JAVA',
     tooltip: 'JAVA',
-    level: 2,
+    level: ProficiencyLevel.Novice,
     // width: '80px',
     image: {
       src: `${IMAGE_BASE_PATH}/proficiencies/java-4.svg`,
@@ -73,7 +81,7 @@ export const proficiencies: Record<string, ProficiencyInfo> = {
   typeScript: {
     skill: 'TypeScript',
     tooltip: 'TypeScript',
-    level: 5,
+    level: ProficiencyLevel.Competent,
     // width: '100px',
     image: {
       src: `${IMAGE_BASE_PATH}/proficiencies/typescript-2.svg`,
@@ -83,7 +91,7 @@ export const proficiencies: Record<string, ProficiencyInfo> = {
   aws: {
     skill: 'AWS',
     tooltip: 'AWS',
-    level: 4,
+    level: ProficiencyLevel.Beginner,
     // width: '100px',
     contrastingBackground: true,
     image: {
@@ -94,7 +102,7 @@ export const proficiencies: Record<string, ProficiencyInfo> = {
   fabric: {
     skill: 'Fabric',
     tooltip: 'Microsoft Fabric',
-    level: 2,
+    level: ProficiencyLevel.Novice,
     // width: '100px',
     image: {
       src: `${IMAGE_BASE_PATH}/proficiencies/fabric_48_color.svg`,
@@ -104,7 +112,7 @@ export const proficiencies: Record<string, ProficiencyInfo> = {
   jira: {
     skill: 'Jira',
     tooltip: 'Jira',
-    level: 5,
+    level: ProficiencyLevel.Proficient,
     // width: '100px',
     image: {
       src: `${IMAGE_BASE_PATH}/proficiencies/jira-1.svg`,
@@ -114,7 +122,7 @@ export const proficiencies: Record<string, ProficiencyInfo> = {
   mySQL: {
     skill: 'MySQL',
     tooltip: 'MySQL',
-    level: 5,
+    level: ProficiencyLevel.Competent,
     // width: '100px',
     image: {
       src: `${IMAGE_BASE_PATH}/proficiencies/mysql-3.svg`,
@@ -124,7 +132,7 @@ export const proficiencies: Record<string, ProficiencyInfo> = {
   mongoDB: {
     skill: 'MongoDB',
     tooltip: 'MongoDB',
-    level: 4,
+    level: ProficiencyLevel.Beginner,
     // width: '100px',
     image: {
       src: `${IMAGE_BASE_PATH}/proficiencies/mongodb-icon-2.svg`,
@@ -134,7 +142,7 @@ export const proficiencies: Record<string, ProficiencyInfo> = {
   nextJS: {
     skill: 'NEXT.js',
     tooltip: 'NEXT.js',
-    level: 4,
+    level: ProficiencyLevel.Competent,
     // width: '100px',
     contrastingBackground: true,
     image: {
@@ -145,7 +153,7 @@ export const proficiencies: Record<string, ProficiencyInfo> = {
   electron: {
     skill: 'Electron',
     tooltip: 'Electron',
-    level: 6,
+    level: ProficiencyLevel.Beginner,
     // width: '100px',
     image: {
       src: `${IMAGE_BASE_PATH}/proficiencies/electron-1.svg`,
@@ -155,7 +163,7 @@ export const proficiencies: Record<string, ProficiencyInfo> = {
   versionControl: {
     skill: 'Version Control/GIT',
     tooltip: 'Version Control/GIT',
-    level: 7,
+    level: ProficiencyLevel.Proficient,
     contrastingBackground: true,
     image: {
       src: `${IMAGE_BASE_PATH}/proficiencies/git.svg`,
@@ -166,7 +174,7 @@ export const proficiencies: Record<string, ProficiencyInfo> = {
   googleMaps: {
     skill: 'Google Maps',
     tooltip: 'Google Maps',
-    level: 2,
+    level: ProficiencyLevel.Novice,
     image: {
       src: `${IMAGE_BASE_PATH}/proficiencies/google-maps-logo-2020.svg`,
       alt: 'Google Maps Logo 2020',
@@ -177,21 +185,30 @@ export const proficiencies: Record<string, ProficiencyInfo> = {
   godot: {
     skill: 'Godot',
     tooltip: 'Godot',
-    level: 5,
+    level: ProficiencyLevel.Beginner,
     image: {
         src: `${IMAGE_BASE_PATH}/proficiencies/godot-logo.svg`,
         alt: 'Godot Logo',
     },
   },
+  blender: {
+    skill: 'Blender',
+    tooltip: 'Blender',
+    level: ProficiencyLevel.Novice,
+    image: {
+      src: `${IMAGE_BASE_PATH}/proficiencies/blender-2.svg`,
+      alt: 'Blender Logo',
+    },
+  },
   videoEditing: {
     skill: 'Video Editing',
-    level: 4,
+    level: ProficiencyLevel.Beginner,
     // width: '120px',
   },
   express: {
     skill: 'Express',
     tooltip: 'Express',
-    level: 3,
+    level: ProficiencyLevel.Novice,
     image: {
       src: `${IMAGE_BASE_PATH}/proficiencies/express.png`,
       alt: 'Express Logo',
@@ -201,13 +218,13 @@ export const proficiencies: Record<string, ProficiencyInfo> = {
   },
   monorepo: {
     skill: 'Monorepos',
-    level: 3,
+    level: ProficiencyLevel.Novice,
     // width: '120px',
   },
   cypress: {
     skill: 'Cypress',
     tooltip: 'Cypress',
-    level: 2,
+    level: ProficiencyLevel.Beginner,
     image: {
       src: `${IMAGE_BASE_PATH}/proficiencies/cypress.svg`,
       alt: 'Cypress Logo',
@@ -217,7 +234,7 @@ export const proficiencies: Record<string, ProficiencyInfo> = {
   docker: {
     skill: 'Docker',
     tooltip: 'Docker',
-    level: 3,
+    level: ProficiencyLevel.Novice,
     image: {
       src: `${IMAGE_BASE_PATH}/proficiencies/docker.svg`,
       alt: 'Docker Logo',
@@ -226,7 +243,7 @@ export const proficiencies: Record<string, ProficiencyInfo> = {
   vue: {
     skill: 'VUE',
     tooltip: 'VUE',
-    level: 4,
+    level: ProficiencyLevel.Beginner,
     image: {
       src: `${IMAGE_BASE_PATH}/proficiencies/vue-9.svg`,
       alt: 'VUE Logo',

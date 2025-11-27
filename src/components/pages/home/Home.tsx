@@ -32,6 +32,7 @@ const profArray = [
   proficiencies.express,
   proficiencies.jira,
   proficiencies.godot,
+  proficiencies.blender,
   proficiencies.docker,
   proficiencies.cypress,
   proficiencies.fabric,
