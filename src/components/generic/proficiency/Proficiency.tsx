@@ -56,6 +56,8 @@ function getColor(level: number, maxLevel: number) {
 }
 
 export function Proficiency(props: PropsProficiency) {
+
+  const [showTooltip, setShowTooltip] = useState(false);
   
   const {
     palette: {
@@ -98,69 +100,83 @@ export function Proficiency(props: PropsProficiency) {
   const color = getColor(levelInt, maxLevel);
 
   return (
-    <Box
-      id={id}
-      width="150px"
-      data-custom-name="Proficiency"
-      onClick={onClick}
-      style={{
-        cursor: !!onClick ? 'pointer' : 'initial',
-      }}
+    <ClickAwayListener
+      onClickAway={() => setShowTooltip(false)}
     >
-      <Box
-        display="flex"
-        flexDirection="row"
-        justifyContent="space-around"
-        alignItems="center"
-        position="relative"
-        padding={1.5}
-        paddingBottom={5}
-        overflow="clip"
-        style={{
-          backgroundColor: contrastingBackground
-            ? '#dcdcdc54'
-            : 'initial',
-          borderLeft: `2px solid ${color}`,
-          borderBottom: `4px solid ${color}`,
-          borderRight: `2px solid ${color}`,
-          borderRadius: '50px',
-          // boxShadow: "0 4px 10px 0 rgba(189, 208, 223, 0.25)",
-          boxShadow: `0 4px 10px 0 ${color}df`,
-        }}
+      <Tooltip
+        title={skill}
+        open={showTooltip}
+        placement="top"
+        onClose={() => setShowTooltip(false)}
       >
-        {tooltip
-          ? <Tooltip
-            title={tooltip}
-            placement="top"
-          >
-            {children as React.ReactElement<unknown, any>}
-          </Tooltip>
-          : children
-        } 
         <Box
-          data-custom-name="Proficiency_LinearProgressBox"
-          display="flex"
-          flexDirection="row"
-          justifyContent="center"
-          position="absolute"
-          bottom="-6px"
-          width="100%"
-          marginTop={2}
+          id={id}
+          width="150px"
+          data-custom-name="Proficiency"
+          onClick={() => setShowTooltip(true)}
+          sx={{
+            cursor: 'pointer',
+          }}
+          style={{
+            cursor: !!onClick ? 'pointer' : 'initial',
+          }}
         >
           <Box
-            width="100%"
-            border={`1px solid ${color}`}
+            display="flex"
+            flexDirection="row"
+            justifyContent="space-around"
+            alignItems="center"
+            position="relative"
+            padding={1.5}
+            paddingBottom={5}
+            overflow="clip"
+            style={{
+              backgroundColor: contrastingBackground
+                ? '#dcdcdc54'
+                : 'initial',
+              borderLeft: `2px solid ${color}`,
+              borderBottom: `4px solid ${color}`,
+              borderRight: `2px solid ${color}`,
+              borderRadius: '50px',
+              // boxShadow: "0 4px 10px 0 rgba(189, 208, 223, 0.25)",
+              boxShadow: `0 4px 10px 0 ${color}df`,
+            }}
           >
-            <Typography
-              variant="body2"
-              textAlign="center"
-              marginBottom={1}
+            {tooltip
+              ? <Tooltip
+                title={tooltip}
+                placement="top"
+              >
+                {children as React.ReactElement<unknown, any>}
+              </Tooltip>
+              : children
+            }
+            <Box
+              data-custom-name="Proficiency_Label"
+              display="flex"
+              flexDirection="row"
+              justifyContent="center"
+              position="absolute"
+              bottom="-6px"
+              width="100%"
+              marginTop={2}
             >
-              {level}
-            </Typography>
+              <Box
+                width="100%"
+                border={`1px solid ${color}`}
+              >
+                <Typography
+                  variant="body2"
+                  textAlign="center"
+                  marginBottom={1}
+                >
+                  {level}
+                </Typography>
+              </Box>
+            </Box>
           </Box>
         </Box>
-      </Box>
-    </Box>
+      </Tooltip>
+    </ClickAwayListener>
   )
 }

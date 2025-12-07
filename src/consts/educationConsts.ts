@@ -1,7 +1,5 @@
 import { ImageAuto, ImageClient } from "@/components/generic/image/ImageClient";
-import { Proficiency } from "@/components/generic/proficiency/Proficiency";
 import { IMAGE_BASE_PATH } from "@/consts/appConsts";
-import { navRoutes } from "./navigationConsts";
 
 export const educationType = {
   certification: 'cert',
@@ -48,6 +46,15 @@ export type EducationInfo = {
 }
 
 export const education: Record<string, EducationInfo> = {
+  blenderAnimeCharacter: {
+    education: 'Make 3D Anime Characters in Blender',
+    subText: 'GameDev.tv',
+    educationURL: 'https://www.gamedev.tv/courses/blender-anime-character/view',
+    type: educationType.course,
+    date: new Date('2025-12-07'),
+    dateStr: 'Oct-Dec 2025',
+    skills: ['Blender', 'Shaders', 'Texture Painting', 'Weight Painting', 'Rigging', 'Inverse Kinematics']
+  },
   godotComplete3d: {
     education: 'Complete Godot 3D: Code Your Own 3D Games In Godot 4!',
     subText: 'GameDev.tv',
