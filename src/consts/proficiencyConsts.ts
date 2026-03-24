@@ -10,6 +10,7 @@ export type ProficiencyInfo = {
   width?: React.ComponentProps<typeof ImageClient>["width"],
   contrastingBackground?: React.ComponentProps<typeof Proficiency>["contrastingBackground"],
   tooltip?: React.ComponentProps<typeof Proficiency>["tooltip"],
+  isAlwaysShowSkillLabel?: boolean,
   image?: {
     src: React.ComponentProps<typeof ImageAuto>["src"],
     alt: React.ComponentProps<typeof ImageAuto>["alt"],
@@ -40,6 +41,7 @@ export const proficiencies: Record<string, ProficiencyInfo> = {
   react: {
     skill: 'React',
     tooltip: 'React',
+    isAlwaysShowSkillLabel: true,
     level: ProficiencyLevel.Proficient,
     // width: '100px',
     image: {
@@ -81,6 +83,7 @@ export const proficiencies: Record<string, ProficiencyInfo> = {
   typeScript: {
     skill: 'TypeScript',
     tooltip: 'TypeScript',
+    isAlwaysShowSkillLabel: true,
     level: ProficiencyLevel.Competent,
     // width: '100px',
     image: {
@@ -102,6 +105,7 @@ export const proficiencies: Record<string, ProficiencyInfo> = {
   fabric: {
     skill: 'Fabric',
     tooltip: 'Microsoft Fabric',
+    isAlwaysShowSkillLabel: true,
     level: ProficiencyLevel.Novice,
     // width: '100px',
     image: {
@@ -112,6 +116,7 @@ export const proficiencies: Record<string, ProficiencyInfo> = {
   jira: {
     skill: 'Jira',
     tooltip: 'Jira',
+    isAlwaysShowSkillLabel: true,
     level: ProficiencyLevel.Proficient,
     // width: '100px',
     image: {
@@ -142,6 +147,7 @@ export const proficiencies: Record<string, ProficiencyInfo> = {
   nextJS: {
     skill: 'NEXT.js',
     tooltip: 'NEXT.js',
+    isAlwaysShowSkillLabel: true,
     level: ProficiencyLevel.Competent,
     // width: '100px',
     contrastingBackground: true,
@@ -153,6 +159,7 @@ export const proficiencies: Record<string, ProficiencyInfo> = {
   electron: {
     skill: 'Electron',
     tooltip: 'Electron',
+    isAlwaysShowSkillLabel: true,
     level: ProficiencyLevel.Beginner,
     // width: '100px',
     image: {
@@ -185,6 +192,7 @@ export const proficiencies: Record<string, ProficiencyInfo> = {
   godot: {
     skill: 'Godot',
     tooltip: 'Godot',
+    isAlwaysShowSkillLabel: true,
     level: ProficiencyLevel.Beginner,
     image: {
         src: `${IMAGE_BASE_PATH}/proficiencies/godot-logo.svg`,
@@ -194,6 +202,7 @@ export const proficiencies: Record<string, ProficiencyInfo> = {
   blender: {
     skill: 'Blender',
     tooltip: 'Blender',
+    isAlwaysShowSkillLabel: true,
     level: ProficiencyLevel.Novice,
     image: {
       src: `${IMAGE_BASE_PATH}/proficiencies/blender-2.svg`,
@@ -208,6 +217,7 @@ export const proficiencies: Record<string, ProficiencyInfo> = {
   express: {
     skill: 'Express',
     tooltip: 'Express',
+    isAlwaysShowSkillLabel: true,
     level: ProficiencyLevel.Novice,
     image: {
       src: `${IMAGE_BASE_PATH}/proficiencies/express.png`,
@@ -224,6 +234,7 @@ export const proficiencies: Record<string, ProficiencyInfo> = {
   cypress: {
     skill: 'Cypress',
     tooltip: 'Cypress',
+    isAlwaysShowSkillLabel: true,
     level: ProficiencyLevel.Beginner,
     image: {
       src: `${IMAGE_BASE_PATH}/proficiencies/cypress.svg`,
@@ -243,10 +254,22 @@ export const proficiencies: Record<string, ProficiencyInfo> = {
   vue: {
     skill: 'VUE',
     tooltip: 'VUE',
+    isAlwaysShowSkillLabel: true,
     level: ProficiencyLevel.Beginner,
     image: {
       src: `${IMAGE_BASE_PATH}/proficiencies/vue-9.svg`,
       alt: 'VUE Logo',
+    },
+  },
+  python: {
+    skill: 'Python',
+    tooltip: 'Python',
+    isAlwaysShowSkillLabel: true,
+    level: ProficiencyLevel.Novice,
+    width: 100,
+    image: {
+      src: `${IMAGE_BASE_PATH}/proficiencies/python-5.svg`,
+      alt: 'Python Logo',
     },
   }
 }

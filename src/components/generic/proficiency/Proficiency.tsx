@@ -128,8 +128,9 @@ export function Proficiency(props: PropsProficiency) {
             alignItems="center"
             position="relative"
             padding={1.5}
-            paddingBottom={5}
+            paddingBottom={3}
             overflow="clip"
+            height="168px"
             style={{
               backgroundColor: contrastingBackground
                 ? '#dcdcdc54'

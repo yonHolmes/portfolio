@@ -24,19 +24,24 @@ const profArray = [
   proficiencies.mongoDB,
   proficiencies.cSharp,
   proficiencies.aws,
-  proficiencies.electron,
   proficiencies.nextJS,
+
   proficiencies.vue,
-  proficiencies.monorepo,
-  proficiencies.versionControl,
-  proficiencies.express,
-  proficiencies.jira,
-  proficiencies.godot,
-  proficiencies.blender,
+  proficiencies.python,
+
   proficiencies.docker,
+  proficiencies.jira,
+  proficiencies.java,
+
+  proficiencies.versionControl,
+  proficiencies.monorepo,
+  proficiencies.electron,
+  proficiencies.express,
   proficiencies.cypress,
   proficiencies.fabric,
-  proficiencies.java,
+
+  proficiencies.godot,
+  proficiencies.blender,
   proficiencies.googleMaps,
   proficiencies.videoEditing,
 ];
@@ -111,14 +116,23 @@ function ProficiencyFromConst(props: {
     >
       {data.image
         ?
-        <ImageClient
-          width={data.width ?? 120}
-          height={data.height ?? 100}
-          heightSkeleton={110}
-          src={data.image.src}
-          alt={data.image.alt}
-          onClick={onClick}
-        />
+        <Box id={`HomeProficiency_${data.skill}`}>
+          <ImageClient
+            width={data.width ?? 120}
+            height={data.height ?? 100}
+            heightSkeleton={110}
+            src={data.image.src}
+            alt={data.image.alt}
+            onClick={onClick}
+          />
+          {data.isAlwaysShowSkillLabel &&
+          <Typography
+            typography="body2"
+            textAlign="center"
+          >
+            {data.skill}
+          </Typography>}
+        </Box>
         :
         <Box
           display="flex"
