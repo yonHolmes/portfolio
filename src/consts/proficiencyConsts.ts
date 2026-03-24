@@ -224,6 +224,7 @@ export const proficiencies: Record<string, ProficiencyInfo> = {
       alt: 'Express Logo',
     },
     height: 100,
+    width: 100,
     // width: '140px',
   },
   monorepo: {
