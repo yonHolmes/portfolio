@@ -223,7 +223,7 @@ export const proficiencies: Record<string, ProficiencyInfo> = {
       src: `${IMAGE_BASE_PATH}/proficiencies/express.png`,
       alt: 'Express Logo',
     },
-    height: 120,
+    height: 100,
     // width: '140px',
   },
   monorepo: {
