@@ -46,6 +46,15 @@ export type EducationInfo = {
 }
 
 export const education: Record<string, EducationInfo> = {
+  godotActionCombarRPG3D: {
+    education: 'Godot 4: Build an Action Combat RPG',
+    subText: 'GameDev.tv',
+    educationURL: 'https://www.gamedev.tv/courses/godot-rpg',
+    type: educationType.course,
+    date: new Date('2026-05-14'),
+    dateStr: 'Feb-May 2026',
+    skills: ['GDScript', 'Godot', 'Persistent Data']
+  },
   blenderAnimeCharacter: {
     education: 'Make 3D Anime Characters in Blender',
     subText: 'GameDev.tv',

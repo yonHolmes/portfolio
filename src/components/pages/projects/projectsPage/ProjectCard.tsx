@@ -5,6 +5,7 @@ import {
   Card,
   CardHeader,
   Chip,
+  CardActionArea,
   Typography,
   useTheme,
 } from "@mui/material";
@@ -43,45 +44,55 @@ export function ProjectCard(props: PropsProjectCard) {
   return (
     <Card
       raised
-      onClick={handleNav}
       variant="outlined"
-      sx={{
-        maxWidth: '500px',
-        cursor: 'pointer',
-        color: textSecondary,
-      }}
     >
-      <Box
-        display="flex"
-        flexDirection="column"
-        justifyContent="space-between"
-        padding={1}
-        height="100%"
+      <CardActionArea
+        onClick={handleNav}
+        sx={{
+          height: '100%',
+          maxWidth: '500px',
+          cursor: 'pointer',
+          color: textSecondary,
+          '&[data-active]': {
+            backgroundColor: 'action.selected',
+            '&:hover': {
+              backgroundColor: 'action.selectedHover',
+            },
+          },
+        }}
       >
-        <Box>
-          <CardHeader title={label} color="secondary" sx={{ padding: 0 }}/>
-          {description &&
-          <Typography marginTop={1}>
-            {description}
-          </Typography>}
-        </Box>
-        <Box width="100%" display="flex" flexDirection="row" justifyContent="space-between">
+        <Box
+          display="flex"
+          flexDirection="column"
+          justifyContent="space-between"
+          padding={1}
+          height="100%"
+        >
+          <Box>
+            <CardHeader title={label} color="secondary" sx={{ padding: 0 }}/>
+            {description &&
+            <Typography marginTop={1}>
+              {description}
+            </Typography>}
+          </Box>
+          <Box width="100%" display="flex" flexDirection="row" justifyContent="space-between">
 
-          <Box width="100%" display="flex" flexDirection="row" flexWrap="wrap" gap={1} marginTop="auto" paddingTop={1}>
-            {tags?.map(tag => <Chip key={tag} label={tag}/>)}
-            
-            {showNavButton &&
-            <Button
-              onClick={handleNav}
-              sx={{
-                textTransform: 'none',
-                marginLeft: 'auto',
-              }}>
-              View
-            </Button>}
+            <Box width="100%" display="flex" flexDirection="row" flexWrap="wrap" gap={1} marginTop="auto" paddingTop={1}>
+              {tags?.map(tag => <Chip key={tag} label={tag}/>)}
+              
+              {showNavButton &&
+              <Button
+                onClick={handleNav}
+                sx={{
+                  textTransform: 'none',
+                  marginLeft: 'auto',
+                }}>
+                View
+              </Button>}
+            </Box>
           </Box>
         </Box>
-      </Box>
+      </CardActionArea>
     </Card>
   )
 }
