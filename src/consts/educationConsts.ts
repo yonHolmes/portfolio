@@ -46,6 +46,15 @@ export type EducationInfo = {
 }
 
 export const education: Record<string, EducationInfo> = {
+  godotShadersCraftStunningVisuals: {
+    education: 'Godot 4 Shaders: Craft Stunning Visuals',
+    subText: 'GameDev.tv',
+    educationURL: 'https://gamedev.tv/courses/godot-shaders',
+    type: educationType.course,
+    date: new Date('2026-07-03'),
+    dateStr: 'July 2027',
+    skills: ['Shaders', 'GDShader', 'Godot', 'Vertex', 'Fragment'],
+  },
   godotMakeYourOwnOnlineGame: {
     education: 'Godot 4 Multiplayer: Make Your Own Online Game',
     subText: 'GameDev.tv',

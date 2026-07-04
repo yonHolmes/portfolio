@@ -1,5 +1,7 @@
+import { getObjectValues } from "@/helpers/typescriptHelper";
 import { navRoutes } from "./navigationConsts";
 import { ProjectHomeKeys, projectsHomeRecord, projectsWorkRecord, ProjectWorkKeys } from "./projectConsts";
+import { education } from "./educationConsts";
 
 const tagGroups = {
   react: [
@@ -193,43 +195,15 @@ export const searchableData: SearchData[] = [
     ),
   }),
 
-  // Courses
-  {
-    label: 'AWS (Zero to Hero)',
-    href: navRoutes.education().path,
-    keyTags: [
-      'Course',
-      'AWS',
-    ],
-    searchTerms: [
-      'Course',
-      'AWS',
-    ]
-  },
-  {
-    label: 'Docker Essentials',
-    href: navRoutes.education().path,
-    keyTags: [
-      'Course',
-      'Docker',
-    ],
-    searchTerms: [
-      'Course',
-      'Docker',
-      'Container',
-    ],
-  },
-  {
-    label: 'Foundational C#',
-    href: navRoutes.education().path,
-    keyTags: [
-      'Certification',
-      'C#',
-    ],
-    searchTerms: [
-      'Certification',
-      'Course',
-      ...tagGroups.cSharp,
-    ],
-  },
+  ...getObjectValues(education).map((edu) => {
+    return {
+      label: edu.education,
+      href: navRoutes.education().path,
+      keyTags: edu.skills ?? [],
+      searchTerms: [
+        ...edu.skills ?? [],
+        ...edu.education.split(' ').filter(part => part.length > 3),
+      ]
+    }
+  }),
 ]

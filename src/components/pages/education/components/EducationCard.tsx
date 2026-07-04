@@ -97,13 +97,16 @@ export function EducationCard({ data }: PropsEducationCard) {
           flexDirection="row"
           justifyContent="space-between"
           width="100%"
-          paddingLeft={1}        >
+          paddingLeft={1}
+        >
           {data.skills &&
           <Box
             display="flex"
             flexDirection="row"
             alignItems="center"
+            flexWrap="wrap"
             gap={2}
+            marginRight={2}
           >
             {data.skills.map(skill =>
               <Typography
