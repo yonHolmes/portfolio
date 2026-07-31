@@ -13,6 +13,7 @@ import {
 import { EducationInfo, educationTypeToInfo } from "@/consts/educationConsts"
 import { SpanHighlight } from "@/components/generic/spanHighlight/SpanHighlight";
 import Image from "next/image";
+import { IMAGE_BASE_PATH } from "@/consts/appConsts";
 
 type PropsEducationCard = {
   data: EducationInfo,
@@ -64,31 +65,35 @@ export function EducationCard({ data }: PropsEducationCard) {
         }
       />
 
-      {data.image &&
+      {(data.images?.length ?? 0) > 0 &&
       <CardContent style={{ height: '100px' }}>
-        <Box display="flex" justifyContent="flex-end" height="100%">
-          <>
-            {typeof data.image.src === 'string' ?
-            <Link href={data.image.src} target="_blank">
-              <Image
-                alt={data.education}
-                src={data.image.src}
-                width={0}
-                height={0}
-                sizes="100vw"
-                style={{ width: 'auto', height: '100%' }} // optional
-              />
-            </Link> : 
-            <Image
-              alt={data.education}
-              src={data.image.src}
-              width={0}
-              height={0}
-              sizes="100vw"
-              style={{ width: 'auto', height: '100%' }} // optional
-            />}
-          </>
-        </Box>
+        {data.images?.map(image => {
+          return (
+            <Box key={image.alt} display="flex" justifyContent="flex-end" height="100%">
+              <>
+                {typeof image.src === 'string' ?
+                <Link href={image.src} target="_blank">
+                  <Image
+                    alt={image.alt ?? data.education}
+                    src={image.src}
+                    width={0}
+                    height={0}
+                    sizes="100vw"
+                    style={{ width: 'auto', height: '100%' }} // optional
+                  />
+                </Link> : 
+                <Image
+                  alt={image.alt ?? data.education}
+                  src={image.src}
+                  width={0}
+                  height={0}
+                  sizes="100vw"
+                  style={{ width: 'auto', height: '100%' }} // optional
+                />}
+              </>
+            </Box>
+          )
+        })}
       </CardContent>}
 
       <CardActions>
@@ -99,24 +104,41 @@ export function EducationCard({ data }: PropsEducationCard) {
           width="100%"
           paddingLeft={1}
         >
-          {data.skills &&
+          {data.skills != null &&
           <Box
             display="flex"
             flexDirection="row"
             alignItems="center"
-            flexWrap="wrap"
             gap={2}
             marginRight={2}
           >
-            {data.skills.map(skill =>
-              <Typography
-                key={skill}
-                variant="caption"
-                fontStyle="italic"
-              >
-                {skill}
-              </Typography>
-            )}
+            {data.logo != null &&
+            <Image
+              alt={data.logo.alt}
+              src={data.logo.src}
+              title={data.logo.text}
+              width={24 * 1.5}
+              height={24 * 1.5}
+            />}
+            <Box
+              display="flex"
+              flexDirection="row"
+              alignItems="center"
+              flexWrap="wrap"
+              rowGap={0.5}
+              columnGap={1}
+              marginRight={2}
+            >
+              {data.skills.map((skill, idx) =>
+                <Typography
+                  key={skill}
+                  variant="caption"
+                  fontStyle="italic"
+                >
+                  {skill}{(data.skills?.length ?? 0) > idx + 1 ? ', ' : ''}
+                </Typography>
+              )}
+            </Box>
           </Box>}
 
           
